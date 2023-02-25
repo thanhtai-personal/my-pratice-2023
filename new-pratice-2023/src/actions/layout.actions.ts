@@ -1,4 +1,4 @@
-import { getState, dispatch } from "dispatcher";
+import { dispatch } from "dispatcher";
 import LayoutActionsType from "actionTypes/layout.actionsType";
 
 export const updateGlobalLoading = (value) => {
