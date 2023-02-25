@@ -12,10 +12,18 @@ const Dispatcher = (function () {
   function InitDispatcher() {
     return {
       dispatch: (actionProps: ActionProps) => {
+        if (process.env.NODE_ENV === "development") {
+          console.log(
+            "Actions dispatched: ",
+            actionProps.type,
+            actionProps.data
+          );
+          console.log("state data", Store.getInstance());
+        }
         eventEmitter.emit(actionProps.type, actionProps.data);
       },
       getState: (selector: Function) => {
-        return selector(Store.getInstance().data);
+        return selector(Store.getInstance());
       },
     };
   }
