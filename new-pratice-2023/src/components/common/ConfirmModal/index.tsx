@@ -182,7 +182,10 @@ const ConfirmModal: ForwardRefRenderFunction<any, any> = (
                           style={{ margin: "0 5px" }}
                         >
                           <Text>
-                            {actionText || (isAlertMessageOnly ? "OK" : "YES")}
+                            {loading
+                              ? "Loading"
+                              : actionText ||
+                                (isAlertMessageOnly ? "OK" : "YES")}
                           </Text>
                         </Button>
                       )}
