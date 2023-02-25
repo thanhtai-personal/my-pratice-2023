@@ -9,12 +9,12 @@ import {
 import { AppTheme } from "styles/theme";
 import { Snackbar } from "@material-ui/core";
 import { makeStyles, createStyles } from "@material-ui/styles";
-import MuiAlert, { AlertProps } from "@material-ui/lab/Alert";
+import MuiAlert from "@material-ui/lab/Alert";
 import Text from "components/common/Text";
 
 interface NotiStackProps {}
 
-const Alert = forwardRef(function Alert(props: AlertProps, ref) {
+const Alert = forwardRef(function Alert(props: any, ref) {
   return <MuiAlert elevation={6} ref={ref} variant="filled" {...props} />;
 });
 

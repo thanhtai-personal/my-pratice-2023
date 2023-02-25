@@ -12,7 +12,8 @@ import React, {
 import { AppTheme } from "styles/theme";
 import Flex from "components/common/Flex";
 import Text from "components/common/Text";
-// import { ReactComponent as CloseIcon } from "assets/icons/closeBtn.svg";
+import { Close as CloseIcon } from "@material-ui/icons";
+import { Observer } from "mobx-react";
 
 interface ConfirmModalProps {}
 
@@ -38,7 +39,7 @@ const ConfirmModal: ForwardRefRenderFunction<any, any> = (
   props: ConfirmModalProps,
   ref: any
 ) => {
-  // const [loading, setLoading] = useState(false);
+  const [loading, setLoading] = useState(false);
   const [messages, setMessages] = useState<ConfirmModalMessage[]>([]);
 
   useImperativeHandle(ref, () => ({
@@ -64,29 +65,28 @@ const ConfirmModal: ForwardRefRenderFunction<any, any> = (
     return <div />;
   }
 
-  // const onActionbtnClicked = async (
-  //   index: number,
-  //   msg: ConfirmModalMessage
-  // ) => {
-  //   const action = msg.action ? msg.action : () => {};
-  //   setLoading(true);
-  //   try {
-  //     await action();
-  //     onDismiss(index);
-  //   } catch (err) {
-  //     console.log(err);
-  //   }
-  //   setLoading(false);
-  // };
+  const onActionbtnClicked = async (
+    index: number,
+    msg: ConfirmModalMessage
+  ) => {
+    const action = msg.action ? msg.action : () => {};
+    setLoading(true);
+    try {
+      await action();
+      onDismiss(index);
+    } catch (err) {
+      console.log(err);
+    }
+    setLoading(false);
+  };
 
   return (
     <Fragment>
       {messages.map((item, index) => {
         let title = item.title ? item.title : "INFO";
         const {
-          // actionBtnVariant,
           isAlertMessageOnly,
-          // actionText,
+          actionText,
           cancelText,
           isSuccessErrorAlert,
         } = item;
@@ -117,7 +117,7 @@ const ConfirmModal: ForwardRefRenderFunction<any, any> = (
                   onDismiss(index);
                 }}
               >
-                {/* <CloseIcon /> */}
+                <CloseIcon />
               </Flex>
 
               <Flex
@@ -171,29 +171,22 @@ const ConfirmModal: ForwardRefRenderFunction<any, any> = (
                         <Text>{cancelText || "NO"}</Text>
                       </Button>
                     )}
-                    {/* <Observer>
+                    <Observer>
                       {() => (
-                        <LoadingButton
+                        <Button
                           fullWidth
-                          variant={
-                            state.isLoading
-                              ? "contained"
-                              : actionBtnVariant || "contained"
-                          }
-                          color="info"
+                          variant={"contained"}
                           onClick={() => {
                             onActionbtnClicked(index, item);
                           }}
                           style={{ margin: "0 5px" }}
-                          autoFocus
-                          pending={state.isLoading}
                         >
                           <Text>
                             {actionText || (isAlertMessageOnly ? "OK" : "YES")}
                           </Text>
-                        </LoadingButton>
+                        </Button>
                       )}
-                    </Observer> */}
+                    </Observer>
                   </Flex>
                 </Flex>
               </Flex>

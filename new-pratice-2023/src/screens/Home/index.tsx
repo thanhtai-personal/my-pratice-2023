@@ -6,6 +6,7 @@ import useDepsContainer from "hooks/useDepsContainer";
 import { useTranslation } from "react-i18next";
 import { useLocation } from "react-router-dom";
 import i18n, { LangKeys } from "locales/i18n";
+import { ConfirmModalInstance, NotiStackInstance } from "App";
 
 const HomeComponent = () => {
   const { layout } = useDepsContainer();
