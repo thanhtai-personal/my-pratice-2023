@@ -1,0 +1,3 @@
+export default {
+  UPDATE_GLOBAL_LOADING: "UPDATE_GLOBAL_LOADING",
+};
