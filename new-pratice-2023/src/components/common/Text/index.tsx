@@ -1,7 +1,7 @@
 import Box, { BoxProps } from "@material-ui/core/Box";
 import Typography, { TypographyProps } from "@material-ui/core/Typography";
 import { createStyles, makeStyles, useTheme } from "@material-ui/styles";
-import { AppTheme, PropType } from "styles/theme";
+import { AppTheme, PropType } from "themes/theme";
 
 const defaultColors = [
   "initial",

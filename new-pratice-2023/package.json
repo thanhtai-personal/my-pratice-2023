@@ -135,6 +135,18 @@
     "modulePaths": [],
     "moduleNameMapper": {
       "^react-native$": "react-native-web",
+      "components/(.*)$": "<rootDir>/src/components/$1",
+      "themes/(.*)$": "<rootDir>/src/themes/$1",
+      "actions/(.*)$": "<rootDir>/src/actions/$1",
+      "actionTypes/(.*)$": "<rootDir>/src/actionTypes/$1",
+      "apis/(.*)$": "<rootDir>/src/apis/$1",
+      "appRoutes/(.*)$": "<rootDir>/src/appRoutes/$1",
+      "dispatcher/(.*)$": "<rootDir>/src/dispatcher/$1",
+      "factory/(.*)$": "<rootDir>/src/factory/$1",
+      "hooks/(.*)$": "<rootDir>/src/hooks/$1",
+      "locales/(.*)$": "<rootDir>/src/locales/$1",
+      "screens/(.*)$": "<rootDir>/src/screens/$1",
+      "store/(.*)$": "<rootDir>/src/store/$1",
       "^.+\\.module\\.(css|sass|scss)$": "identity-obj-proxy"
     },
     "moduleFileExtensions": [

@@ -7,7 +7,7 @@ import ConfirmModal, {
 } from "components/common/ConfirmModal";
 import NotiStack, { NotiMessage } from "components/common/NotiStack";
 import AppModal from "components/common/AppModal";
-import { createAppTheme } from "styles/theme";
+import { createAppTheme } from "themes/theme";
 import appRoutes from "./appRoutes";
 
 // eslint-disable-next-line no-var
@@ -26,6 +26,28 @@ export const ConfirmModalInstance = {
 };
 
 const PortalWrapper = () => {
+  const targetElem = document.getElementById("modal-root");
+  if (!targetElem) {
+    return (
+      <>
+        <ConfirmModal
+          ref={(ref: any) => {
+            _ConfirmModalInstance = ref;
+          }}
+        />
+        <NotiStack
+          ref={(ref: any) => {
+            _NotiStackInstance = ref;
+          }}
+        />
+        <AppModal
+          ref={(ref: any) => {
+            _AppModalInstance = ref;
+          }}
+        />
+      </>
+    );
+  }
   return ReactDOM.createPortal(
     <>
       <ConfirmModal
@@ -44,7 +66,7 @@ const PortalWrapper = () => {
         }}
       />
     </>,
-    document.getElementById("modal-root")
+    targetElem
   );
 };
 

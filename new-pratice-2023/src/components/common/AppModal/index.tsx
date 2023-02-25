@@ -8,7 +8,7 @@ import { makeStyles, withStyles, createStyles } from "@material-ui/styles";
 import Dialog from "@material-ui/core/Dialog";
 import MuiDialogContent from "@material-ui/core/DialogContent";
 import ClearIcon from "@material-ui/icons/Clear";
-import { AppTheme, Colors } from "styles/theme";
+import { AppTheme, Colors } from "themes/theme";
 import Flex from "components/common/Flex";
 import { DialogTitle } from "@material-ui/core";
 

@@ -1,5 +1,5 @@
 import Box, { BoxProps } from "@material-ui/core/Box";
-import { PropType, AppTheme } from "styles/theme";
+import { PropType, AppTheme } from "themes/theme";
 import useTheme from "@material-ui/styles/useTheme";
 import { createStyles, makeStyles } from "@material-ui/styles";
 

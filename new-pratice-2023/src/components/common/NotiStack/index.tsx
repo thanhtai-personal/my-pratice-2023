@@ -6,7 +6,7 @@ import {
   useImperativeHandle,
   useState,
 } from "react";
-import { AppTheme } from "styles/theme";
+import { AppTheme } from "themes/theme";
 import { Snackbar } from "@material-ui/core";
 import { makeStyles, createStyles } from "@material-ui/styles";
 import MuiAlert from "@material-ui/lab/Alert";
