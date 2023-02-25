@@ -9,10 +9,10 @@ import i18n, { LangKeys } from "locales/i18n";
 
 const HomeComponent = () => {
   const { layout } = useDepsContainer();
+  const location = useLocation();
 
   const { t } = useTranslation();
   const cachedT = useCallback((key: string) => t(key), [t]);
-  const location = useLocation();
 
   useEffect(() => {
     const searchParams = new URLSearchParams(location.search);
