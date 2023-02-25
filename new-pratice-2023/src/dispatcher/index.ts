@@ -8,14 +8,10 @@ interface ActionProps {
 
 const Dispatcher = (function () {
   let instant;
-  let isDevelopment = process.env.NODE_ENV === "development";
 
   function InitDispatcher() {
     return {
       dispatch: (actionProps: ActionProps) => {
-        if (isDevelopment) {
-          console.log("dispatched action", actionProps);
-        }
         eventEmitter.emit(actionProps.type, actionProps.data);
       },
       getState: (selector: Function) => {
