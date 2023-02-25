@@ -8,6 +8,8 @@ import NotiStack, { NotiMessage } from "components/common/NotiStack";
 import AppModal from "components/common/AppModal";
 import { createAppTheme } from "styles/theme";
 import appRoutes from "./appRoutes";
+import { useEffect } from "react";
+import ReactDOM from "react-dom";
 
 // eslint-disable-next-line no-var
 var _ConfirmModalInstance: any = {};
@@ -57,25 +59,36 @@ export const NotiStackInstance = {
 const App = () => {
   const theme = createAppTheme();
 
+  useEffect(() => {
+    const portalElement = document.getElementById("portal");
+    if (portalElement) {
+      ReactDOM.createPortal(
+        <>
+          <ConfirmModal
+            ref={(ref: any) => {
+              _ConfirmModalInstance = ref;
+            }}
+          />
+          <NotiStack
+            ref={(ref: any) => {
+              _NotiStackInstance = ref;
+            }}
+          />
+          <AppModal
+            ref={(ref: any) => {
+              _AppModalInstance = ref;
+            }}
+          />
+        </>,
+        portalElement
+      );
+    }
+  }, []);
+
   return (
     <ThemeProvider theme={theme}>
       <CssBaseline />
       <RouterProvider router={appRoutes} />
-      <ConfirmModal
-        ref={(ref: any) => {
-          _ConfirmModalInstance = ref;
-        }}
-      />
-      <NotiStack
-        ref={(ref: any) => {
-          _NotiStackInstance = ref;
-        }}
-      />
-      <AppModal
-        ref={(ref: any) => {
-          _AppModalInstance = ref;
-        }}
-      />
     </ThemeProvider>
   );
 };
