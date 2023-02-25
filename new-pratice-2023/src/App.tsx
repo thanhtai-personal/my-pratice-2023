@@ -26,6 +26,29 @@ export const ConfirmModalInstance = {
   },
 };
 
+const PortalWrapper = () => {
+  return ReactDOM.createPortal(
+    <>
+      <ConfirmModal
+        ref={(ref: any) => {
+          _ConfirmModalInstance = ref;
+        }}
+      />
+      <NotiStack
+        ref={(ref: any) => {
+          _NotiStackInstance = ref;
+        }}
+      />
+      <AppModal
+        ref={(ref: any) => {
+          _AppModalInstance = ref;
+        }}
+      />
+    </>,
+    document.getElementById("modal-root")
+  );
+};
+
 export const AppModalInstance = {
   replaceChildren: (childrenNode: any) => {
     _AppModalInstance && _AppModalInstance.replaceChildren(childrenNode);
@@ -59,36 +82,11 @@ export const NotiStackInstance = {
 const App = () => {
   const theme = createAppTheme();
 
-  useEffect(() => {
-    const portalElement = document.getElementById("portal");
-    if (portalElement) {
-      ReactDOM.createPortal(
-        <>
-          <ConfirmModal
-            ref={(ref: any) => {
-              _ConfirmModalInstance = ref;
-            }}
-          />
-          <NotiStack
-            ref={(ref: any) => {
-              _NotiStackInstance = ref;
-            }}
-          />
-          <AppModal
-            ref={(ref: any) => {
-              _AppModalInstance = ref;
-            }}
-          />
-        </>,
-        portalElement
-      );
-    }
-  }, []);
-
   return (
     <ThemeProvider theme={theme}>
       <CssBaseline />
       <RouterProvider router={appRoutes} />
+      <PortalWrapper />
     </ThemeProvider>
   );
 };
