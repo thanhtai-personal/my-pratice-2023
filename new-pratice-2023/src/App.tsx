@@ -9,6 +9,7 @@ import NotiStack, { NotiMessage } from "components/common/NotiStack";
 import AppModal from "components/common/AppModal";
 import { createAppTheme } from "themes/theme";
 import appRoutes from "./appRoutes";
+import AppLayout from "components/AppLayout";
 
 // eslint-disable-next-line no-var
 var _ConfirmModalInstance: any = {};
@@ -106,7 +107,9 @@ const App = () => {
   return (
     <ThemeProvider theme={theme}>
       <CssBaseline />
-      <RouterProvider router={appRoutes} />
+      <AppLayout>
+        <RouterProvider router={appRoutes} />
+      </AppLayout>
       <PortalWrapper />
     </ThemeProvider>
   );
