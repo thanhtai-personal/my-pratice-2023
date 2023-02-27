@@ -9,7 +9,7 @@ import React, {
   useImperativeHandle,
   useState,
 } from "react";
-import { AppTheme } from "themes/theme";
+import { AppTheme } from "themes";
 import Flex from "components/common/Flex";
 import Text from "components/common/Text";
 import { Close as CloseIcon } from "@material-ui/icons";

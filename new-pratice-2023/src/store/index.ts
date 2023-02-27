@@ -6,8 +6,6 @@ const Store = (function () {
 
   function InitStore() {
     const depsContainer = new DepsContainer();
-    // const depsContainerCtx = createContext(depsContainer);
-    // const data = useContext(depsContainerCtx);
     return {
       isDevelopment,
       ...depsContainer,
