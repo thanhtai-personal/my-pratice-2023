@@ -7,9 +7,11 @@ import ConfirmModal, {
 } from "components/common/ConfirmModal";
 import NotiStack, { NotiMessage } from "components/common/NotiStack";
 import AppModal from "components/common/AppModal";
-import { createAppTheme } from "themes/theme";
+import { createAppTheme } from "themes";
 import appRoutes from "./appRoutes";
 import AppLayout from "components/AppLayout";
+import useDepsContainer from "hooks/useDepsContainer";
+import { useMemo } from "react";
 
 // eslint-disable-next-line no-var
 var _ConfirmModalInstance: any = {};
@@ -102,7 +104,11 @@ export const NotiStackInstance = {
 };
 
 const App = () => {
-  const theme = createAppTheme();
+  const { themeData } = useDepsContainer();
+  const theme = useMemo(
+    () => createAppTheme(themeData.themeKey),
+    [themeData.themeKey]
+  );
 
   return (
     <ThemeProvider theme={theme}>

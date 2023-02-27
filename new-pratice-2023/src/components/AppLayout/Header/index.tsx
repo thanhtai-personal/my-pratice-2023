@@ -64,13 +64,13 @@ const Header = (props: HeaderProps) => {
   );
 };
 
-const useStyles = makeStyles((theme: Theme) =>
-  createStyles({
+const useStyles = makeStyles((theme: Theme) => {
+  return createStyles({
     grow: {
       width: "100vw",
       position: "sticky",
     },
-  })
-);
+  });
+});
 
 export default observer(Header);
