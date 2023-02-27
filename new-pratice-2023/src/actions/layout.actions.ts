@@ -7,3 +7,13 @@ export const updateGlobalLoading = (value) => {
     data: value,
   });
 };
+
+export const openAnchor = (anchor, isOpen) => {
+  dispatch({
+    type: LayoutActionsType.TOGGLE_ANCHOR,
+    data: {
+      anchor,
+      isOpen,
+    },
+  });
+};

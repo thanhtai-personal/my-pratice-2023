@@ -11,6 +11,8 @@ import SearchBox from "components/common/SearchBox";
 import Flex from "components/common/Flex";
 import { observer } from "mobx-react";
 import useDepsContainer from "hooks/useDepsContainer";
+import { openAnchor } from "actions/layout.actions";
+import { AnchorType } from "../AppMenu";
 
 interface AppToolbarProps {
   accountMenuId: string;
@@ -31,6 +33,10 @@ const AppToolbar = (props: AppToolbarProps) => {
 
   const classes = useStyles();
 
+  const handleOpenDrawer = () => {
+    openAnchor(AnchorType.left, true);
+  };
+
   return (
     <Toolbar>
       <IconButton
@@ -38,6 +44,7 @@ const AppToolbar = (props: AppToolbarProps) => {
         className={classes.menuButton}
         color="inherit"
         aria-label="open drawer"
+        onClick={handleOpenDrawer}
       >
         <MenuIcon />
       </IconButton>
