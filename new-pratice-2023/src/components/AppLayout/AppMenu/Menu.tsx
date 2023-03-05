@@ -7,7 +7,7 @@ import ListItemIcon from "@material-ui/core/ListItemIcon";
 import ListItemText from "@material-ui/core/ListItemText";
 import InboxIcon from "@material-ui/icons/MoveToInbox";
 import MailIcon from "@material-ui/icons/Mail";
-import { Alignment } from "./index";
+import { Alignment, AlignmentType } from "./index";
 import clsx from "clsx";
 import _ from "lodash";
 
@@ -40,7 +40,8 @@ const Menu = (props: MenuProps) => {
   return (
     <div
       className={clsx(classes.list, {
-        [classes.fullList]: alignment === "top" || alignment === "bottom",
+        [classes.fullList]:
+          alignment === AlignmentType.top || alignment === AlignmentType.bottom,
       })}
       role="presentation"
       onClick={openAppMenu(false)}

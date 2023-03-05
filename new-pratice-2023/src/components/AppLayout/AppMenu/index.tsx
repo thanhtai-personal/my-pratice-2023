@@ -32,24 +32,20 @@ const AppMenu = (props: AppMenuProps) => {
   return (
     <div id={"menu-wrapper"}>
       {(appLayout.menuAlignment || []).map((alignment) => (
-        <React.Fragment key={alignment}>
-          <Drawer
-            anchor={alignment}
-            open={true}
-            onClose={handleOpenAppMenu(false)}
-          >
-            {
-              <Menu
-                alignment={alignment}
-                openAppMenu={handleOpenAppMenu(false)}
-                menus={(menus || []).filter((m) => m.alignment === alignment)}
-                dividerList={(dividerList || []).filter(
-                  (m) => m.alignment === alignment
-                )}
-              />
-            }
-          </Drawer>
-        </React.Fragment>
+        <Drawer
+          anchor={alignment}
+          open={true}
+          onClose={handleOpenAppMenu(false)}
+        >
+          <Menu
+            alignment={alignment}
+            openAppMenu={handleOpenAppMenu}
+            menus={(menus || []).filter((m) => m.alignment === alignment)}
+            dividerList={(dividerList || []).filter(
+              (m) => m.alignment === alignment
+            )}
+          />
+        </Drawer>
       ))}
     </div>
   );
