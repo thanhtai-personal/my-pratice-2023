@@ -23,20 +23,9 @@ const HomeComponent = () => {
     }
   }, [location.search]);
 
-  useEffect(() => {
-    updateGlobalLoading(true);
-    setTimeout(() => {
-      updateGlobalLoading(false);
-    }, 2000);
-  }, []);
+  useEffect(() => {}, []);
 
-  return (
-    <Flex center width={"100vw"} height={"100vh"}>
-      {layout.isGlobalLoading
-        ? cachedT("Loading")
-        : cachedT("this is home page")}
-    </Flex>
-  );
+  return <Flex center width={"100vw"} height={"100vh"}></Flex>;
 };
 
 export default observer(HomeComponent);

@@ -9,11 +9,14 @@ import InboxIcon from "@material-ui/icons/MoveToInbox";
 import MailIcon from "@material-ui/icons/Mail";
 import { Anchor } from "./index";
 import clsx from "clsx";
+import _ from "lodash";
 
-interface AppMenuProps {
+interface MenuProps {
   anchor: Anchor;
-  toggleDrawer: any;
+  openAppMenu: any;
+  menus: Array<any>;
   classes?: any;
+  dividerList?: Array<any>;
 }
 
 const useStyles = makeStyles({
@@ -25,20 +28,26 @@ const useStyles = makeStyles({
   },
 });
 
-const AppMenu = (props: AppMenuProps) => {
+const Menu = (props: MenuProps) => {
   const intenalClasses = useStyles();
-  const { toggleDrawer, anchor, classes = intenalClasses } = props;
+  const {
+    openAppMenu,
+    anchor,
+    classes = intenalClasses,
+    dividerList,
+    menus,
+  } = props;
   return (
     <div
       className={clsx(classes.list, {
         [classes.fullList]: anchor === "top" || anchor === "bottom",
       })}
       role="presentation"
-      onClick={toggleDrawer(anchor, false)}
-      onKeyDown={toggleDrawer(anchor, false)}
+      onClick={openAppMenu(anchor, false)}
+      onKeyDown={openAppMenu(anchor, false)}
     >
       <List>
-        {["Inbox", "Starred", "Send email", "Drafts"].map((text, index) => (
+        {(menus || []).map((text, index) => (
           <ListItem button key={text}>
             <ListItemIcon>
               {index % 2 === 0 ? <InboxIcon /> : <MailIcon />}
@@ -47,19 +56,19 @@ const AppMenu = (props: AppMenuProps) => {
           </ListItem>
         ))}
       </List>
-      <Divider />
-      <List>
-        {["All mail", "Trash", "Spam"].map((text, index) => (
-          <ListItem button key={text}>
-            <ListItemIcon>
-              {index % 2 === 0 ? <InboxIcon /> : <MailIcon />}
-            </ListItemIcon>
-            <ListItemText primary={text} />
-          </ListItem>
-        ))}
-      </List>
+      {dividerList && !_.isEmpty(dividerList) && <Divider />}
+      {dividerList && !_.isEmpty(dividerList) && (
+        <List>
+          {dividerList.map((item, index) => (
+            <ListItem button key={item.id}>
+              <ListItemIcon>{item.icon}</ListItemIcon>
+              <ListItemText primary={item.name} />
+            </ListItem>
+          ))}
+        </List>
+      )}
     </div>
   );
 };
 
-export default observer(AppMenu);
+export default observer(Menu);

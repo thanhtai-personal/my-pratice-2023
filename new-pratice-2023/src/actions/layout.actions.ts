@@ -8,7 +8,7 @@ export const updateGlobalLoading = (value) => {
   });
 };
 
-export const openAnchor = (anchor, isOpen) => {
+export const openAppMenu = (anchor, isOpen) => {
   dispatch({
     type: LayoutActionsType.TOGGLE_ANCHOR,
     data: {
