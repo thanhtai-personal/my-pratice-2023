@@ -15,9 +15,9 @@ export const AlignmentType = {
 export type Alignment = "top" | "left" | "bottom" | "right";
 
 interface AppMenuProps {
-  menus?: Array<any>;
+  menus?: Array<any>; //add menu items via this props
   classes?: any;
-  dividerList?: Array<any>;
+  dividerList?: Array<any>; //add menu items under divider via this props
 }
 
 const AppMenu = (props: AppMenuProps) => {

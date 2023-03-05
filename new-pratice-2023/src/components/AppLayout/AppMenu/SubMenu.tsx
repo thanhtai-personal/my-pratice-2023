@@ -1,7 +1,12 @@
 import { Collapse, List } from "@material-ui/core";
-import MenuItem from "./MenuItem";
+import MenuItem, { MenuItemType } from "./MenuItem";
 
-const SubMenu = (props: any) => {
+interface SubMenuProps {
+  items: Array<MenuItemType>;
+  isActive?: boolean;
+}
+
+const SubMenu = (props: SubMenuProps) => {
   const { items = [], isActive } = props;
   return (
     <Collapse in={isActive}>

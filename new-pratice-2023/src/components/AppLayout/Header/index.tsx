@@ -28,7 +28,7 @@ const Header = (props: HeaderProps) => {
   return (
     <div className={classes.grow}>
       <AppBar position="static">
-        <AppToolbar accountMenuId={accountMenuId} mobileMenuId={mobileMenuId} />
+        <AppToolbar>{/* add header items here */}</AppToolbar>
       </AppBar>
     </div>
   );
