@@ -25,13 +25,6 @@ const Header = (props: HeaderProps) => {
   const { accountMenuId = ACCOUNT_MENU_ID, mobileMenuId = MOBILE_MENU_ID } =
     props;
 
-  useEffect(() => {
-    updateActiveAlimentMenu([AlignmentType.left]);
-    return () => {
-      updateActiveAlimentMenu([]);
-    };
-  }, []);
-
   return (
     <div className={classes.grow}>
       <AppBar position="static">

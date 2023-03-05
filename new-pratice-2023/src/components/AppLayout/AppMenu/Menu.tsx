@@ -10,10 +10,11 @@ import MailIcon from "@material-ui/icons/Mail";
 import { Alignment, AlignmentType } from "./index";
 import clsx from "clsx";
 import _ from "lodash";
+import MenuItem from "./MenuItem";
 
 interface MenuProps {
   alignment: Alignment;
-  openAppMenu: any;
+  onClose: any;
   menus: Array<any>;
   classes?: any;
   dividerList?: Array<any>;
@@ -31,12 +32,17 @@ const useStyles = makeStyles({
 const Menu = (props: MenuProps) => {
   const intenalClasses = useStyles();
   const {
-    openAppMenu,
+    onClose,
     alignment,
     classes = intenalClasses,
     dividerList,
     menus,
   } = props;
+
+  const handleClose = () => {
+    onClose();
+  };
+
   return (
     <div
       className={clsx(classes.list, {
@@ -44,27 +50,19 @@ const Menu = (props: MenuProps) => {
           alignment === AlignmentType.top || alignment === AlignmentType.bottom,
       })}
       role="presentation"
-      onClick={openAppMenu(false)}
-      onKeyDown={openAppMenu(false)}
+      onClick={handleClose}
+      onKeyDown={handleClose}
     >
       <List>
-        {(menus || []).map((text, index) => (
-          <ListItem button key={text}>
-            <ListItemIcon>
-              {index % 2 === 0 ? <InboxIcon /> : <MailIcon />}
-            </ListItemIcon>
-            <ListItemText primary={text} />
-          </ListItem>
+        {(menus || []).map((item, index) => (
+          <MenuItem key={item.id || item.key} item={item} />
         ))}
       </List>
       {dividerList && !_.isEmpty(dividerList) && <Divider />}
       {dividerList && !_.isEmpty(dividerList) && (
         <List>
           {dividerList.map((item, index) => (
-            <ListItem button key={item.id}>
-              <ListItemIcon>{item.icon}</ListItemIcon>
-              <ListItemText primary={item.name} />
-            </ListItem>
+            <MenuItem key={item.id || item.key} item={item} />
           ))}
         </List>
       )}

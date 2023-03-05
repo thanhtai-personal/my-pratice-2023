@@ -24,29 +24,30 @@ const AppMenu = (props: AppMenuProps) => {
   const { menus, dividerList } = props;
   const { appLayout } = useDepsContainer();
 
-  const handleOpenAppMenu =
-    (open: boolean) => (event: React.KeyboardEvent | React.MouseEvent) => {
-      updateActiveAlimentMenu(open ? appLayout.menuAlignment : []);
-    };
+  const handleCloseAppMenu = () => {
+    updateActiveAlimentMenu([]);
+  };
 
   return (
     <div id={"menu-wrapper"}>
-      {(appLayout.menuAlignment || []).map((alignment) => (
-        <Drawer
-          anchor={alignment}
-          open={true}
-          onClose={handleOpenAppMenu(false)}
-        >
-          <Menu
-            alignment={alignment}
-            openAppMenu={handleOpenAppMenu}
-            menus={(menus || []).filter((m) => m.alignment === alignment)}
-            dividerList={(dividerList || []).filter(
-              (m) => m.alignment === alignment
-            )}
-          />
-        </Drawer>
-      ))}
+      {Object.keys(AlignmentType)
+        .map((key) => AlignmentType[key])
+        .map((alignment) => (
+          <Drawer
+            anchor={alignment}
+            open={appLayout.menuAlignment.includes(alignment)}
+            onClose={handleCloseAppMenu}
+          >
+            <Menu
+              alignment={alignment}
+              onClose={handleCloseAppMenu}
+              menus={(menus || []).filter((m) => m.alignment === alignment)}
+              dividerList={(dividerList || []).filter(
+                (m) => m.alignment === alignment
+              )}
+            />
+          </Drawer>
+        ))}
     </div>
   );
 };
