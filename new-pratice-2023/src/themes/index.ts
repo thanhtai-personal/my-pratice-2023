@@ -28,8 +28,8 @@ export const THEME = {
 
 export const Colors = {};
 
-export const createAppTheme = (key: string) => {
-  let customStyle = {};
+export const createAppTheme = (key: string, newStyle: any = {}) => {
+  let customStyle = newStyle;
   switch (key) {
     case THEME.LIGHT:
       customStyle = lightTheme;

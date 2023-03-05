@@ -103,11 +103,12 @@ export const NotiStackInstance = {
   },
 };
 
-const App = () => {
+const App = (props: any) => {
+  const { customTheme } = props;
   const { themeData } = useDepsContainer();
   const theme = useMemo(
-    () => createAppTheme(themeData.themeKey),
-    [themeData.themeKey]
+    () => createAppTheme(themeData.themeKey, customTheme),
+    [themeData.themeKey, customTheme]
   );
 
   return (
