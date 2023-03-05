@@ -1,23 +1,23 @@
 import LayoutActionsType from "actionTypes/layout.actionsType";
-import { Anchor } from "components/AppLayout/AppMenu";
+import { Alignment } from "components/AppLayout/AppMenu";
 import { makeObservable, observable } from "mobx";
 import BaseReducer from "./Base.reducer";
 
 class AppMenu extends BaseReducer {
   //initial data
   @observable protected isLoading = false as boolean;
-  @observable protected activeAnchor = "" as Anchor | "";
+  @observable protected activeAlignment = "" as Alignment | "";
 
   constructor(depsContainer: any) {
     super(depsContainer);
     this.makeReducer([
       {
-        type: LayoutActionsType.TOGGLE_ANCHOR,
-        handler: (data: { anchor: Anchor; isOpen: boolean }) => {
+        type: LayoutActionsType.TOGGLE_ALIGNMENT,
+        handler: (data: { alignment: Alignment; isOpen: boolean }) => {
           if (data.isOpen) {
-            this.activeAnchor = data.anchor;
+            this.activeAlignment = data.alignment;
           } else {
-            this.activeAnchor = "";
+            this.activeAlignment = "";
           }
         },
       },

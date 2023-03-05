@@ -7,7 +7,7 @@ import AccountCircle from "@material-ui/icons/AccountCircle";
 import { observer } from "mobx-react";
 
 interface MobileMenuProps {
-  mobileMoreAnchorEl: any;
+  mobileMoreAlignmentEl: any;
   mobileMenuId: string;
   isMobileMenuOpen: boolean;
   handleMobileMenuClose: any;
@@ -16,7 +16,7 @@ interface MobileMenuProps {
 
 const MobileMenu = (props: MobileMenuProps) => {
   const {
-    mobileMoreAnchorEl,
+    mobileMoreAlignmentEl,
     mobileMenuId,
     isMobileMenuOpen,
     handleMobileMenuClose,
@@ -25,7 +25,7 @@ const MobileMenu = (props: MobileMenuProps) => {
 
   return (
     <Menu
-      anchorEl={mobileMoreAnchorEl}
+      anchorEl={mobileMoreAlignmentEl}
       anchorOrigin={{ vertical: "top", horizontal: "right" }}
       id={mobileMenuId}
       keepMounted

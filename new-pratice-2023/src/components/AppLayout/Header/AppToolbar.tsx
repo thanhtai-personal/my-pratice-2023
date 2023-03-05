@@ -12,7 +12,7 @@ import Flex from "components/common/Flex";
 import { observer } from "mobx-react";
 import useDepsContainer from "hooks/useDepsContainer";
 import { openAppMenu } from "actions/layout.actions";
-import { AnchorType } from "../AppMenu";
+import { AlignmentType } from "../AppMenu";
 
 interface AppToolbarProps {
   accountMenuId: string;
@@ -34,7 +34,7 @@ const AppToolbar = (props: AppToolbarProps) => {
   const classes = useStyles();
 
   const handleOpenDrawer = () => {
-    openAppMenu(AnchorType.left, true);
+    openAppMenu(AlignmentType.left, true);
   };
 
   return (

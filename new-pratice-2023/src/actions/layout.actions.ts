@@ -8,11 +8,11 @@ export const updateGlobalLoading = (value) => {
   });
 };
 
-export const openAppMenu = (anchor, isOpen) => {
+export const openAppMenu = (alignment, isOpen) => {
   dispatch({
-    type: LayoutActionsType.TOGGLE_ANCHOR,
+    type: LayoutActionsType.TOGGLE_ALIGNMENT,
     data: {
-      anchor,
+      alignment,
       isOpen,
     },
   });

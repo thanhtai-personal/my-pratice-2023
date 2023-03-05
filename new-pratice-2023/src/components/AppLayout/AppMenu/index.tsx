@@ -5,47 +5,57 @@ import { observer } from "mobx-react";
 import { openAppMenu } from "actions/layout.actions";
 import Menu from "./Menu";
 
-export const AnchorType = {
+export const AlignmentType = {
   top: "top",
   left: "left",
   bottom: "bottom",
   right: "right",
 };
 
-export type Anchor = "top" | "left" | "bottom" | "right";
+export type Alignment = "top" | "left" | "bottom" | "right";
 
-interface AppMenuProps {}
+interface AppMenuProps {
+  menus?: Array<any>;
+  classes?: any;
+  dividerList?: Array<any>;
+}
 
 const AppMenu = (props: AppMenuProps) => {
+  const { menus, dividerList } = props;
   const { appMenu } = useDepsContainer();
 
   const handleOpenAppMenu =
-    (anchor: Anchor, open: boolean) =>
+    (alignment: Alignment, open: boolean) =>
     (event: React.KeyboardEvent | React.MouseEvent) => {
-      openAppMenu(anchor, open);
+      openAppMenu(alignment, open);
     };
 
   return (
     <div>
-      {(Object.keys(AnchorType).map((key) => AnchorType[key]) as Anchor[]).map(
-        (anchor) => (
-          <React.Fragment key={anchor}>
-            <Drawer
-              anchor={anchor}
-              open={anchor === appMenu.activeAnchor}
-              onClose={handleOpenAppMenu(anchor, false)}
-            >
-              {
-                <Menu
-                  anchor={anchor}
-                  openAppMenu={handleOpenAppMenu(anchor, false)}
-                  menus={[]}
-                />
-              }
-            </Drawer>
-          </React.Fragment>
-        )
-      )}
+      {(
+        Object.keys(AlignmentType).map(
+          (key) => AlignmentType[key]
+        ) as Alignment[]
+      ).map((alignment) => (
+        <React.Fragment key={alignment}>
+          <Drawer
+            anchor={alignment}
+            open={alignment === appMenu.activeAlignment}
+            onClose={handleOpenAppMenu(alignment, false)}
+          >
+            {
+              <Menu
+                alignment={alignment}
+                openAppMenu={handleOpenAppMenu(alignment, false)}
+                menus={(menus || []).filter((m) => m.alignment === alignment)}
+                dividerList={(dividerList || []).filter(
+                  (m) => m.alignment === alignment
+                )}
+              />
+            }
+          </Drawer>
+        </React.Fragment>
+      ))}
     </div>
   );
 };

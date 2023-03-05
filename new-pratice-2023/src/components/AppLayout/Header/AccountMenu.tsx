@@ -2,18 +2,18 @@ import { Menu, MenuItem } from "@material-ui/core";
 import { observer } from "mobx-react";
 
 interface AccountMenuProps {
-  anchorEl: any;
+  alignment: any;
   menuId: string;
   isMenuOpen: boolean;
   handleMenuClose: any;
 }
 
 const AccountMenu = (props: AccountMenuProps) => {
-  const { anchorEl, menuId, isMenuOpen, handleMenuClose } = props;
+  const { alignment, menuId, isMenuOpen, handleMenuClose } = props;
 
   return (
     <Menu
-      anchorEl={anchorEl}
+      anchorEl={alignment}
       anchorOrigin={{ vertical: "top", horizontal: "right" }}
       id={menuId}
       keepMounted

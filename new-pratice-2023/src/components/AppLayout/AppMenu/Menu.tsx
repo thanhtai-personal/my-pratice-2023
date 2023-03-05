@@ -7,12 +7,12 @@ import ListItemIcon from "@material-ui/core/ListItemIcon";
 import ListItemText from "@material-ui/core/ListItemText";
 import InboxIcon from "@material-ui/icons/MoveToInbox";
 import MailIcon from "@material-ui/icons/Mail";
-import { Anchor } from "./index";
+import { Alignment } from "./index";
 import clsx from "clsx";
 import _ from "lodash";
 
 interface MenuProps {
-  anchor: Anchor;
+  alignment: Alignment;
   openAppMenu: any;
   menus: Array<any>;
   classes?: any;
@@ -32,7 +32,7 @@ const Menu = (props: MenuProps) => {
   const intenalClasses = useStyles();
   const {
     openAppMenu,
-    anchor,
+    alignment,
     classes = intenalClasses,
     dividerList,
     menus,
@@ -40,11 +40,11 @@ const Menu = (props: MenuProps) => {
   return (
     <div
       className={clsx(classes.list, {
-        [classes.fullList]: anchor === "top" || anchor === "bottom",
+        [classes.fullList]: alignment === "top" || alignment === "bottom",
       })}
       role="presentation"
-      onClick={openAppMenu(anchor, false)}
-      onKeyDown={openAppMenu(anchor, false)}
+      onClick={openAppMenu(alignment, false)}
+      onKeyDown={openAppMenu(alignment, false)}
     >
       <List>
         {(menus || []).map((text, index) => (

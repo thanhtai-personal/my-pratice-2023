@@ -13,28 +13,28 @@ const mobileMenuId = "primary-search-account-menu-mobile";
 
 const Header = (props: HeaderProps) => {
   const classes = useStyles();
-  const [anchorEl, setAnchorEl] = React.useState<null | HTMLElement>(null);
-  const [mobileMoreAnchorEl, setMobileMoreAnchorEl] =
+  const [alignment, setAlignmentEl] = React.useState<null | HTMLElement>(null);
+  const [mobileMoreAlignmentEl, setMobileMoreAlignmentEl] =
     React.useState<null | HTMLElement>(null);
 
-  const isMenuOpen = Boolean(anchorEl);
-  const isMobileMenuOpen = Boolean(mobileMoreAnchorEl);
+  const isMenuOpen = Boolean(alignment);
+  const isMobileMenuOpen = Boolean(mobileMoreAlignmentEl);
 
   const handleProfileMenuOpen = (event: React.MouseEvent<HTMLElement>) => {
-    setAnchorEl(event.currentTarget);
+    setAlignmentEl(event.currentTarget);
   };
 
   const handleMobileMenuClose = () => {
-    setMobileMoreAnchorEl(null);
+    setMobileMoreAlignmentEl(null);
   };
 
   const handleMenuClose = () => {
-    setAnchorEl(null);
+    setAlignmentEl(null);
     handleMobileMenuClose();
   };
 
   const handleMobileMenuOpen = (event: React.MouseEvent<HTMLElement>) => {
-    setMobileMoreAnchorEl(event.currentTarget);
+    setMobileMoreAlignmentEl(event.currentTarget);
   };
 
   return (
@@ -48,14 +48,14 @@ const Header = (props: HeaderProps) => {
         />
       </AppBar>
       <MobileMenu
-        mobileMoreAnchorEl={mobileMoreAnchorEl}
+        mobileMoreAlignmentEl={mobileMoreAlignmentEl}
         mobileMenuId={mobileMenuId}
         isMobileMenuOpen={isMobileMenuOpen}
         handleMobileMenuClose={handleMobileMenuClose}
         handleProfileMenuOpen={handleProfileMenuOpen}
       />
       <AccountMenu
-        anchorEl={anchorEl}
+        alignment={alignment}
         menuId={accountMenuId}
         isMenuOpen={isMenuOpen}
         handleMenuClose={handleMenuClose}
