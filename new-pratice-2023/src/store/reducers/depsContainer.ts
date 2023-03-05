@@ -5,7 +5,7 @@ import AppMenuModel from "./AppMenu.reducer";
 import ThemeModel from "./Theme.reducer";
 
 class DepsContainer {
-  public layout: LayoutDataModel;
+  public appLayout: LayoutDataModel;
   public header: HeaderModel;
   public footer: FooterModel;
   public appMenu: AppMenuModel;
@@ -13,7 +13,7 @@ class DepsContainer {
 
   public constructor() {
     // Stores
-    this.layout = new LayoutDataModel(this);
+    this.appLayout = new LayoutDataModel(this);
     this.header = new HeaderModel(this);
     this.footer = new FooterModel(this);
     this.appMenu = new AppMenuModel(this);

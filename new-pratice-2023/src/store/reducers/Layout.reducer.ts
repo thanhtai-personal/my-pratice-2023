@@ -1,5 +1,6 @@
 import layoutActionsType from "actionTypes/layout.actionsType";
-import { makeObservable, observable } from "mobx";
+import { Alignment } from "components/AppLayout/AppMenu";
+import { makeObservable, observable, action } from "mobx";
 import BaseReducer from "./Base.reducer";
 
 class LayoutModel extends BaseReducer {
@@ -7,7 +8,23 @@ class LayoutModel extends BaseReducer {
   @observable protected isGlobalLoading = false as boolean;
   @observable protected useHeader = true as boolean;
   @observable protected useFooter = true as boolean;
-  @observable protected isOpenAppMenu = true as boolean;
+  @observable protected menuAlignment = [] as Array<Alignment>;
+
+  @action public updateGlobalLoading = (loading: boolean) => {
+    this.isGlobalLoading = loading;
+  };
+
+  @action public updateUseHeader = (value: boolean) => {
+    this.useHeader = value;
+  };
+
+  @action public updateUseFooter = (value: boolean) => {
+    this.useFooter = value;
+  };
+
+  @action public updateMenuAlignment = (value: Array<any>) => {
+    this.menuAlignment = value;
+  };
 
   constructor(depsContainer: any) {
     super(depsContainer);
@@ -15,25 +32,25 @@ class LayoutModel extends BaseReducer {
       {
         type: layoutActionsType.UPDATE_GLOBAL_LOADING,
         handler: (data: boolean) => {
-          this.isGlobalLoading = data;
+          this.updateGlobalLoading(data);
         },
       },
       {
         type: layoutActionsType.OPEN_OR_CLOSE_HEADER,
         handler: (data: boolean) => {
-          this.useHeader = data;
+          this.updateUseHeader(data);
         },
       },
       {
         type: layoutActionsType.OPEN_OR_CLOSE_FOOTER,
         handler: (data: boolean) => {
-          this.useFooter = data;
+          this.updateUseFooter(data);
         },
       },
       {
-        type: layoutActionsType.OPEN_OR_CLOSE_APP_MENU,
-        handler: (data: boolean) => {
-          this.isOpenAppMenu = data;
+        type: layoutActionsType.UPDATE_ACTIVE_ALIGNMENT_MENU,
+        handler: (data: Array<Alignment>) => {
+          this.updateMenuAlignment(data);
         },
       },
     ]);

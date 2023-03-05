@@ -2,7 +2,7 @@ import React from "react";
 import Drawer from "@material-ui/core/Drawer";
 import useDepsContainer from "hooks/useDepsContainer";
 import { observer } from "mobx-react";
-import { openAppMenu } from "actions/layout.actions";
+import { updateActiveAlimentMenu } from "actions/layout.actions";
 import Menu from "./Menu";
 
 export const AlignmentType = {
@@ -22,31 +22,26 @@ interface AppMenuProps {
 
 const AppMenu = (props: AppMenuProps) => {
   const { menus, dividerList } = props;
-  const { appMenu } = useDepsContainer();
+  const { appLayout } = useDepsContainer();
 
   const handleOpenAppMenu =
-    (alignment: Alignment, open: boolean) =>
-    (event: React.KeyboardEvent | React.MouseEvent) => {
-      openAppMenu(alignment, open);
+    (open: boolean) => (event: React.KeyboardEvent | React.MouseEvent) => {
+      updateActiveAlimentMenu(open ? appLayout.menuAlignment : []);
     };
 
   return (
-    <div>
-      {(
-        Object.keys(AlignmentType).map(
-          (key) => AlignmentType[key]
-        ) as Alignment[]
-      ).map((alignment) => (
+    <div id={"menu-wrapper"}>
+      {(appLayout.menuAlignment || []).map((alignment) => (
         <React.Fragment key={alignment}>
           <Drawer
             anchor={alignment}
-            open={alignment === appMenu.activeAlignment}
-            onClose={handleOpenAppMenu(alignment, false)}
+            open={true}
+            onClose={handleOpenAppMenu(false)}
           >
             {
               <Menu
                 alignment={alignment}
-                openAppMenu={handleOpenAppMenu(alignment, false)}
+                openAppMenu={handleOpenAppMenu(false)}
                 menus={(menus || []).filter((m) => m.alignment === alignment)}
                 dividerList={(dividerList || []).filter(
                   (m) => m.alignment === alignment

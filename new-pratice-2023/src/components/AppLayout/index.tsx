@@ -12,16 +12,16 @@ interface LayoutProps {
 }
 
 const AppLayout = (props: LayoutProps) => {
-  const { layout } = useDepsContainer();
+  const { appLayout } = useDepsContainer();
 
   const classes = useStyles(props);
 
   return (
     <Flex width={"100vw"} height="100vh" className={classes.appRoot} column>
-      {layout.useHeader && <Header />}
-      {layout.isOpenAppMenu && <AppMenu />}
+      {appLayout.useHeader && <Header />}
+      <AppMenu />
       {props.children}
-      {layout.useFooter && <Footer />}
+      {appLayout.useFooter && <Footer />}
     </Flex>
   );
 };

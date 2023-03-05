@@ -11,14 +11,14 @@ import SearchBox from "components/common/SearchBox";
 import Flex from "components/common/Flex";
 import { observer } from "mobx-react";
 import useDepsContainer from "hooks/useDepsContainer";
-import { openAppMenu } from "actions/layout.actions";
+import { updateActiveAlimentMenu } from "actions/layout.actions";
 import { AlignmentType } from "../AppMenu";
 
 interface AppToolbarProps {
-  accountMenuId: string;
-  mobileMenuId: string;
-  handleMobileMenuOpen: any;
-  handleProfileMenuOpen: any;
+  accountMenuId?: string;
+  mobileMenuId?: string;
+  handleMobileMenuOpen?: any;
+  handleProfileMenuOpen?: any;
 }
 
 const AppToolbar = (props: AppToolbarProps) => {
@@ -34,7 +34,7 @@ const AppToolbar = (props: AppToolbarProps) => {
   const classes = useStyles();
 
   const handleOpenDrawer = () => {
-    openAppMenu(AlignmentType.left, true);
+    updateActiveAlimentMenu([AlignmentType.left]);
   };
 
   return (

@@ -43,8 +43,8 @@ const Menu = (props: MenuProps) => {
         [classes.fullList]: alignment === "top" || alignment === "bottom",
       })}
       role="presentation"
-      onClick={openAppMenu(alignment, false)}
-      onKeyDown={openAppMenu(alignment, false)}
+      onClick={openAppMenu(false)}
+      onKeyDown={openAppMenu(false)}
     >
       <List>
         {(menus || []).map((text, index) => (

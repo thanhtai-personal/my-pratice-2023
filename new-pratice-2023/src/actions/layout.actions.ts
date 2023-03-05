@@ -8,12 +8,9 @@ export const updateGlobalLoading = (value) => {
   });
 };
 
-export const openAppMenu = (alignment, isOpen) => {
+export const updateActiveAlimentMenu = (alignment) => {
   dispatch({
-    type: LayoutActionsType.TOGGLE_ALIGNMENT,
-    data: {
-      alignment,
-      isOpen,
-    },
+    type: LayoutActionsType.UPDATE_ACTIVE_ALIGNMENT_MENU,
+    data: alignment,
   });
 };

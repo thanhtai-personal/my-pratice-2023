@@ -1,24 +1,22 @@
 import LayoutActionsType from "actionTypes/layout.actionsType";
-import { Alignment } from "components/AppLayout/AppMenu";
-import { makeObservable, observable } from "mobx";
+import { action, makeObservable, observable } from "mobx";
 import BaseReducer from "./Base.reducer";
 
 class AppMenu extends BaseReducer {
   //initial data
-  @observable protected isLoading = false as boolean;
-  @observable protected activeAlignment = "" as Alignment | "";
+  @observable protected isMenuOpen = false as boolean;
+
+  @action public updateIsMenuOpen = (value: boolean) => {
+    this.isMenuOpen = value;
+  };
 
   constructor(depsContainer: any) {
     super(depsContainer);
     this.makeReducer([
       {
-        type: LayoutActionsType.TOGGLE_ALIGNMENT,
-        handler: (data: { alignment: Alignment; isOpen: boolean }) => {
-          if (data.isOpen) {
-            this.activeAlignment = data.alignment;
-          } else {
-            this.activeAlignment = "";
-          }
+        type: LayoutActionsType.TOGGLE_APP_MENU,
+        handler: (data: boolean) => {
+          this.updateIsMenuOpen(data);
         },
       },
     ]);
