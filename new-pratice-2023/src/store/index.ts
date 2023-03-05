@@ -1,4 +1,4 @@
-import DepsContainer from "./models/depsContainer";
+import DepsContainer from "./reducers/depsContainer";
 
 const Store = (function () {
   let store;

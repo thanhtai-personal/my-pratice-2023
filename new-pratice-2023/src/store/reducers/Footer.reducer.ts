@@ -1,7 +1,7 @@
 import { makeObservable, observable } from "mobx";
-import BaseModel from "./BaseModel";
+import BaseReducer from "./Base.reducer";
 
-class FooterModel extends BaseModel {
+class FooterModel extends BaseReducer {
   //initial data
   @observable protected isLoading = false as boolean;
 

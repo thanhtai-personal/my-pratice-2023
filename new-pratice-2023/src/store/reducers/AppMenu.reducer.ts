@@ -1,9 +1,9 @@
 import LayoutActionsType from "actionTypes/layout.actionsType";
 import { Anchor, AnchorType } from "components/AppLayout/AppMenu";
 import { makeObservable, observable } from "mobx";
-import BaseModel from "./BaseModel";
+import BaseReducer from "./Base.reducer";
 
-class AppMenu extends BaseModel {
+class AppMenu extends BaseReducer {
   //initial data
   @observable protected isLoading = false as boolean;
   @observable protected activeAnchor = AnchorType.left as Anchor | "";

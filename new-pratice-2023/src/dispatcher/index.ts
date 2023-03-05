@@ -1,5 +1,5 @@
 import Store from "store";
-import { eventEmitter } from "store/models/BaseModel";
+import { eventEmitter } from "store/reducers/Base.reducer";
 
 interface ActionProps {
   type: "string";

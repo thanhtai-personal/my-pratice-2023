@@ -3,7 +3,7 @@ import EventEmitter from "events";
 
 export const eventEmitter = new EventEmitter();
 
-class BaseModel {
+class BaseReducer {
   public depsContainer: DepsContainer;
 
   protected makeReducer = (reducers: Array<{ type: string; handler: any }>) => {
@@ -19,4 +19,4 @@ class BaseModel {
   }
 }
 
-export default BaseModel;
+export default BaseReducer;

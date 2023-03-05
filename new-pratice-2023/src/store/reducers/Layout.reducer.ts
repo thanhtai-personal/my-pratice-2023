@@ -1,8 +1,8 @@
 import layoutActionsType from "actionTypes/layout.actionsType";
 import { makeObservable, observable } from "mobx";
-import BaseModel from "./BaseModel";
+import BaseReducer from "./Base.reducer";
 
-class LayoutModel extends BaseModel {
+class LayoutModel extends BaseReducer {
   //initial data
   @observable protected isGlobalLoading = false as boolean;
   @observable protected useHeader = true as boolean;

@@ -1,7 +1,7 @@
 import { makeObservable, observable } from "mobx";
-import BaseModel from "./BaseModel";
+import BaseReducer from "./Base.reducer";
 
-class HeaderModel extends BaseModel {
+class HeaderModel extends BaseReducer {
   //initial data
   @observable protected isLoading = false as boolean;
   @observable protected useSearchBox = true as boolean;

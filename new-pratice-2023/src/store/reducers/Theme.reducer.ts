@@ -1,9 +1,9 @@
 import themeActionsType from "actionTypes/theme.actionsType";
 import { makeObservable, observable } from "mobx";
 import { THEME } from "themes";
-import BaseModel from "./BaseModel";
+import BaseReducer from "./Base.reducer";
 
-class ThemeModel extends BaseModel {
+class ThemeModel extends BaseReducer {
   //initial data
   @observable protected themeKey = THEME.DARK as string;
 

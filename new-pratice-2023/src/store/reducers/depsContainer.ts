@@ -1,8 +1,8 @@
-import LayoutDataModel from "./Layout";
-import HeaderModel from "./Header";
-import FooterModel from "./Footer";
-import AppMenuModel from "./AppMenu";
-import ThemeModel from "./Theme";
+import LayoutDataModel from "./Layout.reducer";
+import HeaderModel from "./Header.reducer";
+import FooterModel from "./Footer.reducer";
+import AppMenuModel from "./AppMenu.reducer";
+import ThemeModel from "./Theme.reducer";
 
 class DepsContainer {
   public layout: LayoutDataModel;
