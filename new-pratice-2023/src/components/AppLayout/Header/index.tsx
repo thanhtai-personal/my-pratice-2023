@@ -1,11 +1,8 @@
-import { useEffect } from "react";
-import { makeStyles, Theme, createStyles } from "@material-ui/core/styles";
 import { observer } from "mobx-react";
 import AppBar from "@material-ui/core/AppBar";
 import AppToolbar from "./AppToolbar";
-import { updateActiveAlimentMenu } from "actions/layout.actions";
 import useDepsContainer from "hooks/useDepsContainer";
-import { AlignmentType } from "../AppMenu";
+import { headerStyles } from "./styles";
 
 interface HeaderProps {
   accountMenuId?: string;
@@ -20,7 +17,7 @@ const MOBILE_MENU_ID = `${Math.round(
 )}-primary-search-account-menu-mobile`;
 
 const Header = (props: HeaderProps) => {
-  const classes = useStyles();
+  const classes = headerStyles();
   const { appMenu } = useDepsContainer();
   const { accountMenuId = ACCOUNT_MENU_ID, mobileMenuId = MOBILE_MENU_ID } =
     props;
@@ -33,14 +30,5 @@ const Header = (props: HeaderProps) => {
     </div>
   );
 };
-
-const useStyles = makeStyles((theme: Theme) => {
-  return createStyles({
-    grow: {
-      width: "100vw",
-      position: "sticky",
-    },
-  });
-});
 
 export default observer(Header);
