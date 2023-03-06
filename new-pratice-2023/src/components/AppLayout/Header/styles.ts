@@ -1,4 +1,5 @@
-import { makeStyles, Theme, createStyles } from "@material-ui/core/styles";
+import { createStyles, makeStyles } from "@material-ui/styles";
+import { Theme } from "@material-ui/core";
 
 export const toolBarStyles = makeStyles((theme: Theme) =>
   createStyles({

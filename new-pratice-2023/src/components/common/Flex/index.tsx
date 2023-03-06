@@ -49,6 +49,7 @@ const Flex = (props: FlexProps) => {
     centerY,
     children,
     cloneChildren,
+    className,
     ...rest
   } = props;
   let centerProps: any = {};
@@ -94,7 +95,7 @@ const Flex = (props: FlexProps) => {
   return (
     <Box
       component={"div"}
-      className={styles.root}
+      className={[styles.root, className || ""].join(" ")}
       clone={cloneChildren}
       style={style}
     >

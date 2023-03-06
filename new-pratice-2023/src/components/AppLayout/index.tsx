@@ -15,7 +15,7 @@ const AppLayout = (props: LayoutProps) => {
   const classes = appStyles(props);
 
   return (
-    <Flex width={"100vw"} height="100vh" className={classes.appRoot} column>
+    <Flex width={"100vw"} height="100vh" column className={classes.appRoot}>
       {appLayout.useHeader && <Header />}
       <AppMenu />
       {props.children}

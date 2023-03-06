@@ -19,6 +19,7 @@ type TextProps = Omit<BoxProps, "color" | "display" | "style"> &
     color?:
       | (typeof defaultColors[number] | keyof PropType<AppTheme, "colors">)
       | HexColor;
+    boxStyle?: any;
   };
 
 const Text = (props: TextProps) => {
@@ -28,6 +29,7 @@ const Text = (props: TextProps) => {
     textAlign,
     children,
     className,
+    boxStyle,
     ...rest
   } = props;
   const theme: AppTheme = useTheme();
@@ -63,10 +65,10 @@ const Text = (props: TextProps) => {
 
   //@ts-ignore
   return (
-    <Box style={style} {...boxProps} className={className}>
+    <Box style={boxStyle} {...boxProps} className={className}>
       {/* @ts-ignore */}
       <Typography
-        className={className || styles.root}
+        className={[styles.root, className || ""].join(" ")}
         component="div"
         style={style}
       >

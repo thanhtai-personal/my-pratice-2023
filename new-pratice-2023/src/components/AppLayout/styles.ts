@@ -7,6 +7,7 @@ export const appStyles = makeStyles((theme: Theme) =>
       overflowX: "hidden",
       overflowY: "auto",
       position: "relative",
+      background: theme.palette.background.default,
       "&::-webkit-scrollbar": {
         width: "2px",
       },

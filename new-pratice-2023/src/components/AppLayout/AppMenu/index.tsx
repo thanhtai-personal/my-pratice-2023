@@ -34,6 +34,7 @@ const AppMenu = (props: AppMenuProps) => {
         .map((key) => AlignmentType[key])
         .map((alignment) => (
           <Drawer
+            key={alignment}
             anchor={alignment}
             open={appLayout.menuAlignment.includes(alignment)}
             onClose={handleCloseAppMenu}
