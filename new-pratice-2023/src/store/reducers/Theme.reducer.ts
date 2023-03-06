@@ -7,7 +7,7 @@ class ThemeModel extends BaseReducer {
   //initial data
   @observable protected themeKey = THEME.DARK as string;
 
-  @action public updateThemeKey = (value: string) => {
+  @action updateThemeKey = (value: string) => {
     this.themeKey = value;
   };
 

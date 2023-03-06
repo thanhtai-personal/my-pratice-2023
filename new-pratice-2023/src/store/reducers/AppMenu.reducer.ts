@@ -6,7 +6,7 @@ class AppMenu extends BaseReducer {
   //initial data
   @observable protected isMenuOpen = false as boolean;
 
-  @action public updateIsMenuOpen = (value: boolean) => {
+  @action updateIsMenuOpen = (value: boolean) => {
     this.isMenuOpen = value;
   };
 

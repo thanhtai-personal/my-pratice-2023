@@ -12,6 +12,7 @@ import appRoutes from "./appRoutes";
 import AppLayout from "components/AppLayout";
 import useDepsContainer from "hooks/useDepsContainer";
 import { useMemo } from "react";
+import "./App.css";
 
 // eslint-disable-next-line no-var
 var _ConfirmModalInstance: any = {};

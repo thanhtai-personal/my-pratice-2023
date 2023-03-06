@@ -2,6 +2,7 @@ import LoadingFallback from "components/LoadingFallback";
 import { lazy, Profiler, Suspense } from "react";
 import { createBrowserRouter } from "react-router-dom";
 import homeRoutes from "./home";
+import adminRoutes from "./admin";
 
 const HomePage = lazy(() => import("screens/Home"));
 const NotFoundPage = lazy(() => import("screens/NotFound"));
@@ -55,8 +56,9 @@ const appRoutes = createBrowserRouter([
       </Suspense>
     ),
     loader: LoadingFallback,
-    children: [homeRoutes],
   },
+  ...homeRoutes,
+  ...adminRoutes,
 ]);
 
 export default appRoutes;

@@ -10,19 +10,19 @@ class LayoutModel extends BaseReducer {
   @observable protected useFooter = true as boolean;
   @observable protected menuAlignment = [] as Array<Alignment>;
 
-  @action public updateGlobalLoading = (loading: boolean) => {
+  @action updateGlobalLoading = (loading: boolean) => {
     this.isGlobalLoading = loading;
   };
 
-  @action public updateUseHeader = (value: boolean) => {
+  @action updateUseHeader = (value: boolean) => {
     this.useHeader = value;
   };
 
-  @action public updateUseFooter = (value: boolean) => {
+  @action updateUseFooter = (value: boolean) => {
     this.useFooter = value;
   };
 
-  @action public updateMenuAlignment = (value: Array<any>) => {
+  @action updateMenuAlignment = (value: Array<any>) => {
     this.menuAlignment = value;
   };
 
