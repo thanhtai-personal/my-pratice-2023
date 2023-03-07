@@ -2,6 +2,7 @@ import Flex from "components/common/Flex";
 import Text from "components/common/Text";
 import { observer } from "mobx-react";
 import { useTranslation } from "react-i18next";
+import { Link } from "react-router-dom";
 
 const UnauthorizePage = (props: any) => {
   const { t } = useTranslation();
@@ -11,7 +12,9 @@ const UnauthorizePage = (props: any) => {
       <Text className="text">
         {t(`You need permission to join this page.`)}
       </Text>
-      <Text className="link-text">{t(`Click here to login.`)}</Text>
+      <Link to={"/login"}>
+        <Text className="link-text">{t(`Click here to login.`)}</Text>
+      </Link>
     </Flex>
   );
 };

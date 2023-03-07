@@ -22,8 +22,9 @@ const Dispatcher = (function () {
         }
         eventEmitter.emit(actionProps.type, actionProps.data);
       },
-      getState: (selector: Function) => {
-        return selector(Store.getInstance());
+      getState: (selector?: Function) => {
+        if (selector) return selector(Store.getInstance());
+        return Store.getInstance();
       },
     };
   }

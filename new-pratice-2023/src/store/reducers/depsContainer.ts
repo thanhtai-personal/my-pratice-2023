@@ -4,6 +4,8 @@ import FooterReducer from "./Footer.reducer";
 import AppMenuReducer from "./AppMenu.reducer";
 import ThemeReducer from "./Theme.reducer";
 import AuthReducer from "./Auth.reducer";
+import LocalizeReducer from "./Localize.reducer";
+import LoginReducer from "./Login.reducer";
 
 class DepsContainer {
   public appLayout: LayoutDataReducer;
@@ -12,6 +14,8 @@ class DepsContainer {
   public appMenu: AppMenuReducer;
   public themeData: ThemeReducer;
   public auth: AuthReducer;
+  public localize: LocalizeReducer;
+  public login: LoginReducer;
 
   public constructor() {
     // Stores
@@ -21,6 +25,8 @@ class DepsContainer {
     this.appMenu = new AppMenuReducer(this);
     this.themeData = new ThemeReducer(this);
     this.auth = new AuthReducer(this);
+    this.localize = new LocalizeReducer(this);
+    this.login = new LoginReducer(this);
   }
 }
 

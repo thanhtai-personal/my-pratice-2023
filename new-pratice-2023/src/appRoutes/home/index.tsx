@@ -1,3 +1,4 @@
+import ErrorContainer from "appRoutes/RouterErrorElement";
 import LoadingFallback from "components/LoadingFallback";
 import { lazy, Suspense } from "react";
 
@@ -11,6 +12,7 @@ const homeRoutes = [
         <HomePage />
       </Suspense>
     ),
+    errorElement: <ErrorContainer />,
     loader: LoadingFallback,
   },
 ];

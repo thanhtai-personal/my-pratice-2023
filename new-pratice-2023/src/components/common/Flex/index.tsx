@@ -96,8 +96,10 @@ const Flex = (props: FlexProps) => {
     <Box
       component={"div"}
       className={[styles.root, className || ""].join(" ")}
-      clone={cloneChildren}
       style={style}
+      {...centerProps}
+      {...colorProps}
+      {...rest}
     >
       {children}
     </Box>

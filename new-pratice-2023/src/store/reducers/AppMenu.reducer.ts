@@ -2,7 +2,7 @@ import LayoutActionsType from "actionTypes/layout.actionsType";
 import { action, makeObservable, observable } from "mobx";
 import BaseReducer from "./Base.reducer";
 
-class AppMenu extends BaseReducer {
+class AppMenuReducer extends BaseReducer {
   //initial data
   @observable protected isMenuOpen = false as boolean;
 
@@ -24,4 +24,4 @@ class AppMenu extends BaseReducer {
   }
 }
 
-export default AppMenu;
+export default AppMenuReducer;

@@ -4,7 +4,7 @@ import { MenuItemType } from "components/AppLayout/AppMenu/MenuItem";
 import { makeObservable, observable, action } from "mobx";
 import BaseReducer from "./Base.reducer";
 
-class LayoutModel extends BaseReducer {
+class LayoutReducer extends BaseReducer {
   //initial data
   @observable protected isGlobalLoading = false as boolean;
   @observable protected useHeader = true as boolean;
@@ -79,4 +79,4 @@ class LayoutModel extends BaseReducer {
   }
 }
 
-export default LayoutModel;
+export default LayoutReducer;

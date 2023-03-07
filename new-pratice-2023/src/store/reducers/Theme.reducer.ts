@@ -3,7 +3,7 @@ import { makeObservable, observable, action } from "mobx";
 import { THEME } from "themes";
 import BaseReducer from "./Base.reducer";
 
-class ThemeModel extends BaseReducer {
+class ThemeReducer extends BaseReducer {
   //initial data
   @observable protected themeKey = THEME.DARK as string;
 
@@ -25,4 +25,4 @@ class ThemeModel extends BaseReducer {
   }
 }
 
-export default ThemeModel;
+export default ThemeReducer;

@@ -13,6 +13,7 @@ i18n
   .use(LanguageDetector)
   .use(initReactI18next)
   .init({
+    fallbackLng: LangKeys.en,
     resources: {
       [LangKeys.en]: {
         translation: en,
@@ -22,7 +23,6 @@ i18n
         translation: vn,
       },
     },
-    fallbackLng: LangKeys.en,
     debug: false,
     interpolation: { escapeValue: false },
   });

@@ -16,6 +16,13 @@ export const updateActiveAlimentMenu = (alignment) => {
   });
 };
 
+export const toggleHeader = (isOpen: boolean) => {
+  dispatch({
+    type: LayoutActionsType.OPEN_OR_CLOSE_HEADER,
+    data: isOpen,
+  });
+};
+
 export const setAppMenu = (data: {
   dividerList?: Array<MenuItemType>;
   menus?: Array<MenuItemType>;

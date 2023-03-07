@@ -1,7 +1,7 @@
 import { makeObservable, observable } from "mobx";
 import BaseReducer from "./Base.reducer";
 
-class HeaderModel extends BaseReducer {
+class HeaderReducer extends BaseReducer {
   //initial data
   @observable protected isLoading = false as boolean;
 
@@ -12,4 +12,4 @@ class HeaderModel extends BaseReducer {
   }
 }
 
-export default HeaderModel;
+export default HeaderReducer;
