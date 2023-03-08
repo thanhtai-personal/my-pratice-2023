@@ -1,13 +1,12 @@
 import Flex from "components/common/Flex";
-import useDepsContainer from "hooks/useDepsContainer";
-import { observer } from "mobx-react";
+import useSelector from "hooks/useSelector";
 
 interface FooterProps {}
 
 const Footer = (props: FooterProps) => {
-  const { footer } = useDepsContainer();
+  const footerState = useSelector((state) => state.footer);
 
   return <Flex></Flex>;
 };
 
-export default observer(Footer);
+export default Footer;

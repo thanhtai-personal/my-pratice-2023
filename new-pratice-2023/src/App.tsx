@@ -10,8 +10,9 @@ import AppModal from "components/common/AppModal";
 import { createAppTheme } from "themes";
 import appRoutes from "./appRoutes";
 import AppLayout from "components/AppLayout";
-import useDepsContainer from "hooks/useDepsContainer";
 import { useMemo } from "react";
+import "./App.css";
+import useSelector from "hooks/useSelector";
 
 // eslint-disable-next-line no-var
 var _ConfirmModalInstance: any = {};
@@ -103,11 +104,12 @@ export const NotiStackInstance = {
   },
 };
 
-const App = () => {
-  const { themeData } = useDepsContainer();
+const App = (props: any) => {
+  const { customThemes } = props;
+  const themeState = useSelector((state) => ({ theme: state.theme }));
   const theme = useMemo(
-    () => createAppTheme(themeData.themeKey),
-    [themeData.themeKey]
+    () => createAppTheme(themeState.themeKey, customThemes),
+    [themeState.themeKey, customThemes]
   );
 
   return (

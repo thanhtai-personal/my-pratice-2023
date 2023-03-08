@@ -13,7 +13,6 @@ import { AppTheme } from "themes";
 import Flex from "components/common/Flex";
 import Text from "components/common/Text";
 import { Close as CloseIcon } from "@material-ui/icons";
-import { Observer } from "mobx-react";
 
 interface ConfirmModalProps {}
 
@@ -171,25 +170,20 @@ const ConfirmModal: ForwardRefRenderFunction<any, any> = (
                         <Text>{cancelText || "NO"}</Text>
                       </Button>
                     )}
-                    <Observer>
-                      {() => (
-                        <Button
-                          fullWidth
-                          variant={"contained"}
-                          onClick={() => {
-                            onActionbtnClicked(index, item);
-                          }}
-                          style={{ margin: "0 5px" }}
-                        >
-                          <Text>
-                            {loading
-                              ? "Loading"
-                              : actionText ||
-                                (isAlertMessageOnly ? "OK" : "YES")}
-                          </Text>
-                        </Button>
-                      )}
-                    </Observer>
+                    <Button
+                      fullWidth
+                      variant={"contained"}
+                      onClick={() => {
+                        onActionbtnClicked(index, item);
+                      }}
+                      style={{ margin: "0 5px" }}
+                    >
+                      <Text>
+                        {loading
+                          ? "Loading"
+                          : actionText || (isAlertMessageOnly ? "OK" : "YES")}
+                      </Text>
+                    </Button>
                   </Flex>
                 </Flex>
               </Flex>

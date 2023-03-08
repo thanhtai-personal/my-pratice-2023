@@ -1,4 +1,5 @@
 import createMuiTheme from "@material-ui/core/styles/createTheme";
+import { isEmpty } from "lodash";
 const lightTheme = require("./theme.light");
 const darkTheme = require("./theme.dark");
 
@@ -28,17 +29,19 @@ export const THEME = {
 
 export const Colors = {};
 
-export const createAppTheme = (key: string) => {
-  let customStyle = {};
-  switch (key) {
-    case THEME.LIGHT:
-      customStyle = lightTheme;
-      break;
-    case THEME.DARK:
-      customStyle = darkTheme;
-      break;
-    default:
-      break;
+export const createAppTheme = (key: string, newStyle: any = {}) => {
+  let customStyle = newStyle[key] || {};
+  if (isEmpty(newStyle)) {
+    switch (key) {
+      case THEME.LIGHT:
+        customStyle = lightTheme;
+        break;
+      case THEME.DARK:
+        customStyle = darkTheme;
+        break;
+      default:
+        break;
+    }
   }
   const muiTheme = createMuiTheme(customStyle);
   return {

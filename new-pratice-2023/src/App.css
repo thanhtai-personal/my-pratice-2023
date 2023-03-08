@@ -56,3 +56,16 @@
     transform: rotate(360deg);
   }
 }
+
+.link-text {
+  cursor: pointer;
+  color: steelblue;
+  text-decoration: underline;
+}
+
+.text {
+  font-weight: 400;
+  font-size: medium;
+  color: black;
+  font-family: Arial, Helvetica, sans-serif;
+}

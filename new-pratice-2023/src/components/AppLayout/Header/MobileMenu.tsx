@@ -4,10 +4,9 @@ import Badge from "@material-ui/core/Badge";
 import MailIcon from "@material-ui/icons/Mail";
 import NotificationsIcon from "@material-ui/icons/Notifications";
 import AccountCircle from "@material-ui/icons/AccountCircle";
-import { observer } from "mobx-react";
 
 interface MobileMenuProps {
-  mobileMoreAnchorEl: any;
+  mobileMoreAlignmentEl: any;
   mobileMenuId: string;
   isMobileMenuOpen: boolean;
   handleMobileMenuClose: any;
@@ -16,7 +15,7 @@ interface MobileMenuProps {
 
 const MobileMenu = (props: MobileMenuProps) => {
   const {
-    mobileMoreAnchorEl,
+    mobileMoreAlignmentEl,
     mobileMenuId,
     isMobileMenuOpen,
     handleMobileMenuClose,
@@ -25,7 +24,7 @@ const MobileMenu = (props: MobileMenuProps) => {
 
   return (
     <Menu
-      anchorEl={mobileMoreAnchorEl}
+      anchorEl={mobileMoreAlignmentEl}
       anchorOrigin={{ vertical: "top", horizontal: "right" }}
       id={mobileMenuId}
       keepMounted
@@ -64,4 +63,4 @@ const MobileMenu = (props: MobileMenuProps) => {
   );
 };
 
-export default observer(MobileMenu);
+export default MobileMenu;
