@@ -18,6 +18,14 @@ const loginReducer = (state: LoginState = initialState, action: any) => {
         ...state,
         password: action.payload,
       };
+    case LoginActionType.UPDATE_VALIDATE:
+      return {
+        ...state,
+        validateObj: {
+          ...state.validateObj,
+          errors: action.payload,
+        },
+      };
     default:
       return state;
   }

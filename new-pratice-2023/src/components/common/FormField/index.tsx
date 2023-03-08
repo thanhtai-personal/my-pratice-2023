@@ -9,8 +9,8 @@ interface FieldProps {
 const FormField = (props: FieldProps) => {
   const classes = fieldStyles();
   const { model } = props;
-  const { render, selector, ...nestedProps } = model;
-  const storeData = useSelector(selector || ((state) => ({})));
+  const { render, selector = (state) => ({}), ...nestedProps } = model;
+  const storeData = useSelector(selector);
 
   return (
     <Flex width={"100%"} marginTop={"8px"} my={2}>

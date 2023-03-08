@@ -10,7 +10,13 @@ import Text from "../Text";
 
 const InputField = (props: any) => {
   const { item = {} } = props;
-  const { inputProps = {}, labelProps = {}, onChange, ...nestedProps } = item;
+  const {
+    inputProps = {},
+    labelProps = {},
+    onChange,
+    validateObj,
+    name,
+  } = item;
   const { t } = useLocalize();
   const theme = useTheme();
 
@@ -32,6 +38,7 @@ const InputField = (props: any) => {
         onChange={handleChange}
         InputProps={{
           disableUnderline: true,
+          error: validateObj.errors?.includes(name),
           style: {
             border: "solid 1px rgba(0,0,0,0.12)",
             borderRadius: ".5rem",

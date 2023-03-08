@@ -6,7 +6,10 @@ const createStore = (reducer, initialState, enhancer) => {
   let state = initialState;
   const listeners = [];
 
-  const getState = () => state;
+  const getState = (selector?: Function) => {
+    if (selector) return selector(state);
+    return state;
+  };
 
   const dispatch = (action) => {
     state = reducer(state, action);

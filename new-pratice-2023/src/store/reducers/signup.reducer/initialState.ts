@@ -6,6 +6,7 @@ export type SignupState = {
   phoneNumber: string;
   email: string;
   loading: boolean;
+  validateObj: any;
 };
 
 const state = {
@@ -16,6 +17,27 @@ const state = {
   phoneNumber: "",
   email: "",
   loading: false,
+  validateObj: {
+    username: {
+      message: "",
+    },
+    password: {
+      message: "",
+    },
+    confirmPassword: {
+      message: "",
+    },
+    fullname: {
+      message: "",
+    },
+    phoneNumber: {
+      message: "",
+    },
+    email: {
+      message: "",
+    },
+    errors: [],
+  },
 };
 
 export default state;

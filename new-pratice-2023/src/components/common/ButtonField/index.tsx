@@ -6,7 +6,14 @@ import useSelector from "hooks/useSelector";
 import { useGlobalStyle } from "styles";
 
 const ButtonField = (props: any) => {
-  const { action, label, selector, loading } = props;
+  const {
+    action,
+    label,
+    selector,
+    loading,
+    validated = () => true,
+    ...nestedProps
+  } = props;
   const { t } = useLocalize();
   const globalClasses = useGlobalStyle();
   const storeData = useSelector(selector);
@@ -21,7 +28,10 @@ const ButtonField = (props: any) => {
         className={globalClasses.buttonSubmit}
         variant="contained"
         onClick={handleClick}
-        disabled={storeData.loading || loading}
+        disabled={
+          storeData.loading || loading || !validated(storeData.validateObj)
+        }
+        {...nestedProps}
       >
         <Text className={globalClasses.buttonText}>
           {storeData.loading || loading ? t("...") : t(label)}

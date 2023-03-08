@@ -3,9 +3,28 @@ import InputField from "components/common/InputField";
 import ButtonField from "components/common/ButtonField";
 import { login, updatePassword, updateUsername } from "actions/login.actions";
 import { FieldAlignment } from "components/common/Form";
+import { object, string } from "yup";
+import { isEmpty } from "lodash";
+
+export const loginSchema = object().shape({
+  username: string().min(8, "username").required("username"),
+  password: string()
+    .min(8, "password")
+    .required("password")
+    .matches(
+      /^(?=.*[a-z])(?=.*[A-Z])(?=.*\d)(?=.*[@$!%*?&])[A-Za-z\d@$!%*?&]{8,}$/,
+      "password"
+    ),
+  // Have a minimum length of 8 characters
+  // Have at least one lowercase letter
+  // Have at least one uppercase letter
+  // Have at least one digit
+  // Have at least one special character (i.e. one of @$!%*?&)
+});
 
 const LoginModel = {
-  userName: {
+  username: {
+    name: "username",
     priority: 1,
     type: FormItemTypes.FIELD,
     label: "Username",
@@ -13,11 +32,15 @@ const LoginModel = {
     inputProps: {
       fullWidth: true,
     },
+    selector: (state: any) => ({
+      validateObj: state.login.validateObj,
+    }),
     onChange: updateUsername,
     helpText: "We'll never share your account",
     render: (item) => <InputField item={item} />,
   },
   password: {
+    name: "password",
     priority: 2,
     type: FormItemTypes.FIELD,
     label: "Password",
@@ -27,6 +50,9 @@ const LoginModel = {
       type: "password",
       fullWidth: true,
     },
+    selector: (state: any) => ({
+      validateObj: state.login.validateObj,
+    }),
     onChange: updatePassword,
     render: (item) => <InputField item={item} />,
   },
@@ -37,9 +63,18 @@ const LoginModel = {
     action: login,
     selector: (state: any) => ({
       loading: state.login.loading,
+      validateObj: state.login.validateObj,
     }),
-    render: ({ label, action, selector }) => (
-      <ButtonField action={action} label={label} selector={selector} />
+    validated: (validateObj) => {
+      return !validateObj.errors || isEmpty(validateObj.errors);
+    },
+    render: ({ label, action, selector, validated }) => (
+      <ButtonField
+        action={action}
+        label={label}
+        selector={selector}
+        validated={validated}
+      />
     ),
   },
 };

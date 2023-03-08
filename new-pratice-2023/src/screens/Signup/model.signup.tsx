@@ -11,9 +11,25 @@ import {
   updateEmail,
 } from "actions/signup.actions";
 import { FieldAlignment } from "components/common/Form";
+import { object, string, mixed, ref } from "yup";
+import { isEmpty } from "lodash";
+
+export const signupSchema = object().shape({
+  username: string().min(8, "username").required("username"),
+  password: string().min(8, "password").required("password"),
+  confirmPassword: mixed()
+    .oneOf([ref("password"), null], "confirmPassword")
+    .required("confirmPassword"),
+  fullname: string().required("fullname"),
+  phone: string()
+    .matches(/^(\+\d{1,3})?\s?(\d{3})\s?\d{3}\s?\d{4}$/, "phone")
+    .required("phone"),
+  email: string().email("email").required("email"),
+});
 
 const SignupModel = {
-  userName: {
+  username: {
+    name: "username",
     priority: 1,
     type: FormItemTypes.FIELD,
     label: "Username",
@@ -27,6 +43,7 @@ const SignupModel = {
     render: (item) => <InputField item={item} />,
   },
   password: {
+    name: "password",
     priority: 2,
     type: FormItemTypes.FIELD,
     alignment: FieldAlignment.TOP_LEFT,
@@ -41,6 +58,7 @@ const SignupModel = {
     render: (item) => <InputField item={item} />,
   },
   confirmPassword: {
+    name: "confirmPassword",
     priority: 3,
     type: FormItemTypes.FIELD,
     alignment: FieldAlignment.TOP_LEFT,
@@ -54,6 +72,7 @@ const SignupModel = {
     render: (item) => <InputField item={item} />,
   },
   fullName: {
+    name: "fullName",
     priority: 1,
     type: FormItemTypes.FIELD,
     alignment: FieldAlignment.TOP_RIGHT,
@@ -66,6 +85,7 @@ const SignupModel = {
     render: (item) => <InputField item={item} />,
   },
   phone: {
+    name: "phone",
     priority: 2,
     type: FormItemTypes.FIELD,
     alignment: FieldAlignment.TOP_RIGHT,
@@ -78,6 +98,7 @@ const SignupModel = {
     render: (item) => <InputField item={item} />,
   },
   email: {
+    name: "email",
     priority: 3,
     type: FormItemTypes.FIELD,
     alignment: FieldAlignment.TOP_RIGHT,
@@ -97,8 +118,15 @@ const SignupModel = {
     selector: (state: any) => ({
       loading: state.signup.loading,
     }),
-    render: ({ label, action, selector }) => (
-      <ButtonField action={action} label={label} selector={selector} />
+    validated: (validateObj) =>
+      !validateObj.errors || isEmpty(validateObj.errors),
+    render: ({ label, action, selector, validated }) => (
+      <ButtonField
+        action={action}
+        label={label}
+        selector={selector}
+        validated={validated}
+      />
     ),
   },
 };

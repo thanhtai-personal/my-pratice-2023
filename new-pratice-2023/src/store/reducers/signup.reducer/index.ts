@@ -38,6 +38,14 @@ const loginReducer = (state: SignupState = initialState, action: any) => {
         ...state,
         phoneNumber: action.payload,
       };
+    case SignupActionType.UPDATE_VALIDATE:
+      return {
+        ...state,
+        validateObj: {
+          ...state.validateObj,
+          errors: action.payload,
+        },
+      };
     default:
       return state;
   }

@@ -72,3 +72,18 @@ export const updateEmail = (data: { value: string }) => {
     payload: data.value,
   });
 };
+
+export const updateValidate = (
+  key: string,
+  isValidated: boolean,
+  error?: any
+) => {
+  store.dispatch({
+    type: SignupActionTypes.UPDATE_VALIDATE,
+    payload: {
+      key,
+      isValidated,
+      error,
+    },
+  });
+};
