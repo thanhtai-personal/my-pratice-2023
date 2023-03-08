@@ -40,7 +40,9 @@ const InputField = (props: any) => {
           disableUnderline: true,
           error: validateObj.errors?.includes(name),
           style: {
-            border: "solid 1px rgba(0,0,0,0.12)",
+            border: validateObj.errors?.includes(name)
+              ? "solid 1px rgba(250, 6, 6, 0.24)"
+              : "solid 1px rgba(0,0,0,0.12)",
             borderRadius: ".5rem",
             padding: "0 12px",
           },
