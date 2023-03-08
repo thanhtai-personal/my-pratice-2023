@@ -2,12 +2,14 @@ import { Button } from "@material-ui/core";
 import Flex from "components/common/Flex";
 import Text from "components/common/Text";
 import useLocalize from "hooks/useLocalize";
+import useSelector from "hooks/useSelector";
 import { useGlobalStyle } from "styles";
 
 const ButtonField = (props: any) => {
-  const { action, label } = props;
+  const { action, label, selector, loading } = props;
   const { t } = useLocalize();
   const globalClasses = useGlobalStyle();
+  const storeData = useSelector(selector);
 
   const handleClick = (e: any) => {
     action && action({ event: e });
@@ -19,8 +21,11 @@ const ButtonField = (props: any) => {
         className={globalClasses.buttonSubmit}
         variant="contained"
         onClick={handleClick}
+        disabled={storeData.loading || loading}
       >
-        <Text className={globalClasses.buttonText}>{t(label)}</Text>
+        <Text className={globalClasses.buttonText}>
+          {storeData.loading || loading ? t("...") : t(label)}
+        </Text>
       </Button>
     </Flex>
   );

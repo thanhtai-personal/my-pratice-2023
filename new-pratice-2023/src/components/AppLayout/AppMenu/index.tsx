@@ -1,8 +1,6 @@
-import React from "react";
 import Drawer from "@material-ui/core/Drawer";
-import useDepsContainer from "hooks/useDepsContainer";
-import { observer } from "mobx-react";
 import { updateActiveAlimentMenu } from "actions/layout.actions";
+import useSelector from "hooks/useSelector";
 import Menu from "./Menu";
 
 export const AlignmentType = {
@@ -22,7 +20,7 @@ interface AppMenuProps {
 
 const AppMenu = (props: AppMenuProps) => {
   const { menus, dividerList } = props;
-  const { appLayout } = useDepsContainer();
+  const layoutState = useSelector((state) => state.layout);
 
   const handleCloseAppMenu = () => {
     updateActiveAlimentMenu([]);
@@ -36,7 +34,7 @@ const AppMenu = (props: AppMenuProps) => {
           <Drawer
             key={alignment}
             anchor={alignment}
-            open={appLayout.menuAlignment.includes(alignment)}
+            open={layoutState.menuAlignment.includes(alignment)}
             onClose={handleCloseAppMenu}
           >
             <Menu
@@ -53,4 +51,4 @@ const AppMenu = (props: AppMenuProps) => {
   );
 };
 
-export default observer(AppMenu);
+export default AppMenu;

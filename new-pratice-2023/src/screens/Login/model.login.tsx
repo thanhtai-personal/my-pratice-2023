@@ -35,8 +35,11 @@ const LoginModel = {
     alignment: FieldAlignment.BOTTOM,
     label: "Login",
     action: login,
-    render: ({ label, action }) => (
-      <ButtonField action={action} label={label} />
+    selector: (state: any) => ({
+      loading: state.login.loading,
+    }),
+    render: ({ label, action, selector }) => (
+      <ButtonField action={action} label={label} selector={selector} />
     ),
   },
 };

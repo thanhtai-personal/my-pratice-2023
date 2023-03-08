@@ -2,22 +2,22 @@ import AuthActionsType from "actionTypes/auth.actionsType";
 import LoginActionType from "actionTypes/login.actionsType";
 import { login as loginApi } from "apis/userApi";
 import { NotiStackInstance } from "App";
-import { dispatch, getState } from "dispatcher";
+import store from "store";
 
 export const login = async () => {
-  dispatch({
+  store.dispatch({
     type: LoginActionType.UPDATE_LOADING_LOGIN,
-    data: true,
+    payload: true,
   });
   try {
-    const { login } = getState();
+    const { login } = store.getState();
     const response = await loginApi({
       username: login.username,
       password: login.password,
     });
-    dispatch({
+    store.dispatch({
       type: AuthActionsType.UPDATE_AUTHEN_DATA,
-      data: response.data,
+      payload: response.data,
     });
   } catch (error: any) {
     NotiStackInstance.push({
@@ -25,22 +25,22 @@ export const login = async () => {
       variant: "error",
     });
   }
-  dispatch({
+  store.dispatch({
     type: LoginActionType.UPDATE_LOADING_LOGIN,
-    data: false,
+    payload: false,
   });
 };
 
 export const updateUsername = (data: { value: string }) => {
-  dispatch({
+  store.dispatch({
     type: LoginActionType.UPDATE_LOGIN_USER_NAME,
-    data: data.value,
+    payload: data.value,
   });
 };
 
 export const updatePassword = (data: { value: string }) => {
-  dispatch({
+  store.dispatch({
     type: LoginActionType.UPDATE_LOGIN_PASSWORD,
-    data: data.value,
+    payload: data.value,
   });
 };

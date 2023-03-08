@@ -1,5 +1,4 @@
 import { Menu, MenuItem } from "@material-ui/core";
-import { observer } from "mobx-react";
 
 interface AccountMenuProps {
   alignment: any;
@@ -27,4 +26,4 @@ const AccountMenu = (props: AccountMenuProps) => {
   );
 };
 
-export default observer(AccountMenu);
+export default AccountMenu;

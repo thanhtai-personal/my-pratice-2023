@@ -1,4 +1,3 @@
-import { observer } from "mobx-react";
 import Flex from "components/common/Flex";
 
 const HomeComponent = () => {
@@ -9,4 +8,4 @@ const HomeComponent = () => {
   );
 };
 
-export default observer(HomeComponent);
+export default HomeComponent;

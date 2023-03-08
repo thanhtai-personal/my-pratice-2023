@@ -4,7 +4,6 @@ import Badge from "@material-ui/core/Badge";
 import MailIcon from "@material-ui/icons/Mail";
 import NotificationsIcon from "@material-ui/icons/Notifications";
 import AccountCircle from "@material-ui/icons/AccountCircle";
-import { observer } from "mobx-react";
 
 interface MobileMenuProps {
   mobileMoreAlignmentEl: any;
@@ -64,4 +63,4 @@ const MobileMenu = (props: MobileMenuProps) => {
   );
 };
 
-export default observer(MobileMenu);
+export default MobileMenu;

@@ -1,25 +1,25 @@
-import { dispatch } from "dispatcher";
+import store from "store";
 import LayoutActionsType from "actionTypes/layout.actionsType";
 import { MenuItemType } from "components/AppLayout/AppMenu/MenuItem";
 
 export const updateGlobalLoading = (value) => {
-  dispatch({
+  store.dispatch({
     type: LayoutActionsType.UPDATE_GLOBAL_LOADING,
-    data: value,
+    payload: value,
   });
 };
 
 export const updateActiveAlimentMenu = (alignment) => {
-  dispatch({
+  store.dispatch({
     type: LayoutActionsType.UPDATE_ACTIVE_ALIGNMENT_MENU,
-    data: alignment,
+    payload: alignment,
   });
 };
 
 export const toggleHeader = (isOpen: boolean) => {
-  dispatch({
+  store.dispatch({
     type: LayoutActionsType.OPEN_OR_CLOSE_HEADER,
-    data: isOpen,
+    payload: isOpen,
   });
 };
 
@@ -27,8 +27,8 @@ export const setAppMenu = (data: {
   dividerList?: Array<MenuItemType>;
   menus?: Array<MenuItemType>;
 }) => {
-  dispatch({
+  store.dispatch({
     type: LayoutActionsType.UPDATE_APP_MENU,
-    data,
+    payload: data,
   });
 };

@@ -1,4 +1,3 @@
-import { observer } from "mobx-react";
 import List from "@material-ui/core/List";
 import Divider from "@material-ui/core/Divider";
 import { Alignment, AlignmentType } from "./index";
@@ -56,4 +55,4 @@ const Menu = (props: MenuProps) => {
   );
 };
 
-export default observer(Menu);
+export default Menu;

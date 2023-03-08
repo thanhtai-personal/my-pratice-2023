@@ -1,4 +1,3 @@
-import { observer } from "mobx-react";
 import Flex from "components/common/Flex";
 import Text from "components/common/Text";
 import useAdminLayout from "hooks/useAdminLayout";
@@ -13,4 +12,4 @@ const DashboardPage = () => {
   );
 };
 
-export default observer(DashboardPage);
+export default DashboardPage;

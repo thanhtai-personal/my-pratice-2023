@@ -1,5 +1,4 @@
 import Flex from "components/common/Flex";
-import { observer } from "mobx-react";
 import { useGlobalStyle } from "styles";
 import { useSignupStyles } from "./styles";
 
@@ -16,4 +15,4 @@ const Signup = (props: SignupProps) => {
   );
 };
 
-export default observer(Signup);
+export default Signup;

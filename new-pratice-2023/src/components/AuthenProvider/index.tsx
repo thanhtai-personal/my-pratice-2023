@@ -1,9 +1,8 @@
 import { getAuthData } from "actions/auth.actions";
-import useDepsContainer from "hooks/useDepsContainer";
-import { observer } from "mobx-react";
 import { useEffect, useState } from "react";
 import UnauthorizePage from "./Unauthorize";
 import { isEmpty } from "lodash";
+import useSelector from "hooks/useSelector";
 
 interface AutheProps {
   roles?: Array<any>; //what roles is access to children page
@@ -13,7 +12,7 @@ interface AutheProps {
 const AuthenProvider = (props: AutheProps) => {
   const { roles = [] } = props;
   const [isAuthen, setAuthen] = useState(false);
-  const { auth } = useDepsContainer();
+  const { auth } = useSelector((state) => state.auth);
 
   useEffect(() => {
     getAuthData();
@@ -32,4 +31,4 @@ const AuthenProvider = (props: AutheProps) => {
   return <UnauthorizePage />;
 };
 
-export default observer(AuthenProvider);
+export default AuthenProvider;

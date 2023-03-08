@@ -1,9 +1,9 @@
-import { dispatch } from "dispatcher";
+import store from "store";
 import LocalizeActionTypes from "actionTypes/localize.actionsType";
 
 export const changeLanguage = (value) => {
-  dispatch({
+  store.dispatch({
     type: LocalizeActionTypes.CHANGE_LANGUAGE,
-    data: value,
+    payload: value,
   });
 };

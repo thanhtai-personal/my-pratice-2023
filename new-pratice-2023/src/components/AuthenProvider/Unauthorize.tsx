@@ -1,6 +1,5 @@
 import Flex from "components/common/Flex";
 import Text from "components/common/Text";
-import { observer } from "mobx-react";
 import { useTranslation } from "react-i18next";
 import { Link } from "react-router-dom";
 
@@ -19,4 +18,4 @@ const UnauthorizePage = (props: any) => {
   );
 };
 
-export default observer(UnauthorizePage);
+export default UnauthorizePage;
