@@ -2,6 +2,8 @@ export type ThemeState = {
   themeKey: string;
 };
 
-export default {
+const state = {
   themeKey: "light",
 };
+
+export default state;

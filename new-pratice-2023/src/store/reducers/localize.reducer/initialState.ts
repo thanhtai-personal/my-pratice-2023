@@ -4,6 +4,8 @@ export type LayoutState = {
   key: string;
 };
 
-export default {
+const state = {
   key: LangKeys.en,
 };
+
+export default state;

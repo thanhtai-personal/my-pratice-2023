@@ -3,9 +3,10 @@ import FormField from "../FormField";
 import { formStyles } from "./styles";
 import { isEmpty } from "lodash";
 import { FormControl } from "@material-ui/core";
+import { useEffect, useState } from "react";
 
 const FormPresentation = (props: any) => {
-  const classes = formStyles(props);
+  const [classes, setClasses] = useState(formStyles(props));
   const {
     topLeftFields = [],
     topRightFields = [],
@@ -13,11 +14,18 @@ const FormPresentation = (props: any) => {
     bottomRightFields = [],
     topActions = [],
     bottomActions = [],
+    customStyle,
   } = props;
+
+  useEffect(() => {
+    if (customStyle) {
+      setClasses(customStyle(props));
+    }
+  }, [customStyle]);
 
   return (
     <FormControl>
-      <Flex column width={"100%"}>
+      <Flex column width={"100%"} className={classes.form}>
         {!isEmpty(topActions) && (
           <Flex width={"100%"} justifyContent={"flex-end"}>
             {topActions.map((action) => (

@@ -1,7 +1,9 @@
-export default {
-  isLoading: false,
-};
-
 export type HeaderState = {
   isLoading: boolean;
 };
+
+const state = {
+  isLoading: false,
+};
+
+export default state;

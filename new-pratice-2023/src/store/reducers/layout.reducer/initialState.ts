@@ -7,7 +7,7 @@ export type LayoutState = {
   dividerList: Array<any>;
 };
 
-export default {
+const state = {
   isGlobalLoading: false,
   useHeader: true,
   useFooter: true,
@@ -15,3 +15,5 @@ export default {
   menus: [],
   dividerList: [],
 };
+
+export default state;

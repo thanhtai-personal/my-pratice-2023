@@ -4,8 +4,10 @@ export type LoginState = {
   loading: boolean;
 };
 
-export default {
+const state = {
   username: "",
   password: "",
   loading: false,
 };
+
+export default state;

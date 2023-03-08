@@ -6,6 +6,7 @@ import layoutReducer from "./layout.reducer";
 import localizeReducer from "./localize.reducer";
 import loginReducer from "./login.reducer";
 import themeReducer from "./theme.reducer";
+import signupReducer from "./signup.reducer";
 
 const rootReducer = (state: any = {}, action) => {
   return {
@@ -16,6 +17,7 @@ const rootReducer = (state: any = {}, action) => {
     layout: layoutReducer(state.layout, action),
     localize: localizeReducer(state.localize, action),
     login: loginReducer(state.login, action),
+    signup: signupReducer(state.signup, action),
     theme: themeReducer(state.theme, action),
   };
 };

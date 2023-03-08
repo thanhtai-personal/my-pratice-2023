@@ -11,3 +11,7 @@ export const getAuth = async () => {
 export const login = async (data) => {
   return await backendHttpClient.post(`/users/login`, data);
 };
+
+export const signup = async (data) => {
+  return await backendHttpClient.post(`/users/signup`, data);
+};
