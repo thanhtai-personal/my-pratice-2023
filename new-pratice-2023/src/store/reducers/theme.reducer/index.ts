@@ -5,7 +5,7 @@ import produce from "immer";
 const themeReducer = (state: ThemeState = initialState, action: any) => {
   switch (action.type) {
     case ThemeActionsType.UPDATE_THEME:
-      return produce((state, prevState) => {
+      return produce(state, (prevState) => {
         prevState.themeKey = action.payload;
       });
     default:
