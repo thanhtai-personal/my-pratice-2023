@@ -1,13 +1,13 @@
 import initialState, { LayoutState } from "./initialState";
 import localizeActionTypes from "actionTypes/localize.actionsType";
+import produce from "immer";
 
 const localizeReducer = (state: LayoutState = initialState, action) => {
   switch (action.type) {
     case localizeActionTypes.CHANGE_LANGUAGE:
-      return {
-        ...state,
-        key: action.payload,
-      };
+      return produce((state, prevState) => {
+        prevState.key = action.payload;
+      });
     default:
       return state;
   }
