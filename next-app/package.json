@@ -6,10 +6,11 @@
     "dev": "next dev",
     "build": "next build",
     "start": "next start",
-    "lint": "next lint"
+    "lint": "next lint",
+    "initdatabase": "dotenv -e .env.local node databases/mongo/index",
+    "window:createDatabase": "set DATABASE_URL=mongodb+srv://oldman:withdeveloper30isold@salewebdb.agigdgy.mongodb.net/test && node ./databases/mongo/index.js"
   },
   "dependencies": {
-    "next": "13.2.4",
     "@babel/core": "^7.16.0",
     "@material-ui/core": "^4.12.4",
     "@material-ui/icons": "^4.11.3",
@@ -36,14 +37,13 @@
     "css-loader": "^6.5.1",
     "css-minimizer-webpack-plugin": "^3.2.0",
     "date-fns": "^2.29.3",
-    "dotenv": "^10.0.0",
-    "dotenv-expand": "^5.1.0",
     "env-cmd": "^10.1.0",
     "eslint": "^8.3.0",
     "eslint-config-react-app": "^7.0.1",
     "eslint-webpack-plugin": "^3.1.1",
     "events": "^3.3.0",
     "file-loader": "^6.2.0",
+    "firebase": "^9.17.2",
     "fs-extra": "^10.0.0",
     "html-webpack-plugin": "^5.5.0",
     "i18next": "^22.4.10",
@@ -55,6 +55,8 @@
     "jest-watch-typeahead": "^1.0.0",
     "lodash": "^4.17.21",
     "mini-css-extract-plugin": "^2.4.5",
+    "mongodb": "^5.1.0",
+    "next": "13.2.4",
     "postcss": "^8.4.4",
     "postcss-flexbugs-fixes": "^5.0.2",
     "postcss-loader": "^6.2.1",
@@ -90,6 +92,8 @@
   "devDependencies": {
     "@types/node": "18.15.0",
     "@types/react": "18.0.28",
+    "dotenv": "^16.0.3",
+    "dotenv-expand": "^5.1.0",
     "eslint": "8.35.0",
     "eslint-config-next": "13.2.4"
   }
