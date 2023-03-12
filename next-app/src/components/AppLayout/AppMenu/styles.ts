@@ -11,3 +11,25 @@ export const listStyle = makeStyles((theme: Theme) =>
     },
   })
 );
+
+export const menuItemStyle = makeStyles((theme: Theme) =>
+  createStyles({
+    itemActive: {
+      background: "black",
+      color: "white",
+      pointerEvents: "none",
+      width: "100%",
+    },
+    item: {
+      width: "100%",
+    },
+  })
+);
+
+export const subMenusStyle = makeStyles((theme: Theme) =>
+  createStyles({
+    root: {
+      width: "100%",
+    },
+  })
+);

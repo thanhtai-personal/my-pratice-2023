@@ -1,7 +1,7 @@
 import Flex from "src/components/common/Flex";
 import Text from "src/components/common/Text";
 import { useTranslation } from "react-i18next";
-import { Link } from "react-router-dom";
+import Link from "next/link";
 
 const UnauthorizePage = (props: any) => {
   const { t } = useTranslation();
@@ -11,7 +11,7 @@ const UnauthorizePage = (props: any) => {
       <Text className="text">
         {t(`You need permission to join this page.`)}
       </Text>
-      <Link to={"/login"}>
+      <Link href={"/login"}>
         <Text className="link-text">{t(`Click here to login.`)}</Text>
       </Link>
     </Flex>

@@ -70,6 +70,7 @@ const applyMiddleware =
       dispatch: enhancedDispatch,
     };
   };
+
 const store = applyMiddleware(loggerMiddleware)(createStore)(
   rootReducer,
   defaultState

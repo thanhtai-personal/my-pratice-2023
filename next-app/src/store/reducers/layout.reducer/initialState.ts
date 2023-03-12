@@ -5,6 +5,7 @@ export type LayoutState = {
   menuAlignment: Array<string>;
   menus: Array<any>;
   dividerList: Array<any>;
+  activeMenus: Array<string>;
 };
 
 const state = {
@@ -14,6 +15,7 @@ const state = {
   menuAlignment: [],
   menus: [],
   dividerList: [],
+  activeMenus: [],
 };
 
 export default state;

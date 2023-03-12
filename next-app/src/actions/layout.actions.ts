@@ -32,3 +32,10 @@ export const setAppMenu = (data: {
     payload: data,
   });
 };
+
+export const setActiveMenu = (activeMenus: Array<string>) => {
+  store.dispatch({
+    type: LayoutActionsType.SET_ACTIVE_MENUS,
+    payload: activeMenus,
+  });
+};

@@ -16,11 +16,12 @@ interface AppMenuProps {
   menus?: Array<any>; //add menu items via this props
   classes?: any;
   dividerList?: Array<any>; //add menu items under divider via this props
+  menuAlignment: Array<string>;
+  activeMenus?: Array<string>;
 }
 
 const AppMenu = (props: AppMenuProps) => {
-  const { menus, dividerList } = props;
-  const layoutState = useSelector((state) => state.layout);
+  const { menus, dividerList, menuAlignment, activeMenus } = props;
 
   const handleCloseAppMenu = () => {
     updateActiveAlimentMenu([]);
@@ -34,7 +35,7 @@ const AppMenu = (props: AppMenuProps) => {
           <Drawer
             key={alignment}
             anchor={alignment}
-            open={layoutState.menuAlignment.includes(alignment)}
+            open={menuAlignment.includes(alignment)}
             onClose={handleCloseAppMenu}
           >
             <Menu
@@ -44,6 +45,7 @@ const AppMenu = (props: AppMenuProps) => {
               dividerList={(dividerList || []).filter(
                 (m) => m.alignment === alignment
               )}
+              activeMenus={activeMenus}
             />
           </Drawer>
         ))}

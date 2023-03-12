@@ -12,6 +12,7 @@ interface MenuProps {
   menus: Array<any>;
   classes?: any;
   dividerList?: Array<any>;
+  activeMenus?: Array<any>;
 }
 
 const Menu = (props: MenuProps) => {
@@ -22,6 +23,7 @@ const Menu = (props: MenuProps) => {
     classes = intenalClasses,
     dividerList,
     menus,
+    activeMenus,
   } = props;
 
   const handleClose = () => {
@@ -40,14 +42,22 @@ const Menu = (props: MenuProps) => {
     >
       <List>
         {(menus || []).map((item, index) => (
-          <MenuItem key={item.id || item.key} item={item} />
+          <MenuItem
+            key={item.id || item.key}
+            item={item}
+            activeMenus={activeMenus}
+          />
         ))}
       </List>
       {dividerList && !_.isEmpty(dividerList) && <Divider />}
       {dividerList && !_.isEmpty(dividerList) && (
         <List>
           {dividerList.map((item, index) => (
-            <MenuItem key={item.id || item.key} item={item} />
+            <MenuItem
+              key={item.id || item.key}
+              item={item}
+              activeMenus={activeMenus}
+            />
           ))}
         </List>
       )}

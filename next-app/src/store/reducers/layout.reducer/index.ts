@@ -25,6 +25,10 @@ const layoutReducer = (state: LayoutState = initialState, action) => {
         prevState.dividerList = action.payload.dividerList;
         prevState.menus = action.payload.menus;
       });
+    case LayoutActionsType.SET_ACTIVE_MENUS:
+      return produce(state, (prevState) => {
+        prevState.activeMenus = action.payload;
+      });
     default:
       return state;
   }

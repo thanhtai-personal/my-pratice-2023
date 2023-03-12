@@ -1,9 +1,12 @@
-import { useEffect, useState } from "react";
+import { useEffect, useLayoutEffect, useState } from "react";
 import store from "src/store";
 
-const useSelector = (selector: Function) => {
+const useSelector = (
+  selector: Function = (state) => state,
+  isDebug: boolean = false
+) => {
   const [state, setState] = useState(store.getState());
-  useEffect(() => {
+  useLayoutEffect(() => {
     const unsubscribe = store.subscribe(() => {
       const newState = store.getState();
       setState(newState);
@@ -13,7 +16,9 @@ const useSelector = (selector: Function) => {
       unsubscribe();
     };
   }, []);
-
+  if (isDebug) {
+    console.log("selector state", selector(state));
+  }
   return selector(state);
 };
 

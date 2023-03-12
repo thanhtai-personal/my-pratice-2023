@@ -10,7 +10,7 @@ interface LayoutProps {
 }
 
 const AppLayout = (props: LayoutProps) => {
-  const layoutState = useSelector((state) => state.layout);
+  const layoutState = useSelector((state) => state.layout, true);
   const classes = appStyles(props);
 
   return (
@@ -19,6 +19,8 @@ const AppLayout = (props: LayoutProps) => {
       <AppMenu
         menus={layoutState.menus}
         dividerList={layoutState.dividerList}
+        menuAlignment={layoutState.menuAlignment}
+        activeMenus={layoutState.activeMenus}
       />
       {props.children}
       {layoutState.useFooter && <Footer />}
