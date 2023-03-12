@@ -18,12 +18,20 @@ interface AppMenuProps {
   dividerList?: Array<any>; //add menu items under divider via this props
   menuAlignment: Array<string>;
   activeMenus?: Array<string>;
+  disabledOutSiteClick?: boolean;
 }
 
 const AppMenu = (props: AppMenuProps) => {
-  const { menus, dividerList, menuAlignment, activeMenus } = props;
+  const {
+    menus,
+    dividerList,
+    menuAlignment,
+    activeMenus,
+    disabledOutSiteClick = false,
+  } = props;
 
   const handleCloseAppMenu = () => {
+    if (disabledOutSiteClick) return;
     updateActiveAlimentMenu([]);
   };
 

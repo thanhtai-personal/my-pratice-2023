@@ -21,6 +21,7 @@ const AppLayout = (props: LayoutProps) => {
         dividerList={layoutState.dividerList}
         menuAlignment={layoutState.menuAlignment}
         activeMenus={layoutState.activeMenus}
+        disabledOutSiteClick={layoutState.disabledOutSiteClick}
       />
       {props.children}
       {layoutState.useFooter && <Footer />}

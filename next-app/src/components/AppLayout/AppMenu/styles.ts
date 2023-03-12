@@ -15,10 +15,13 @@ export const listStyle = makeStyles((theme: Theme) =>
 export const menuItemStyle = makeStyles((theme: Theme) =>
   createStyles({
     itemActive: {
-      background: "black",
+      background: "rgba(0,0,0, 0.89) !important",
       color: "white",
       pointerEvents: "none",
       width: "100%",
+      boxShadow:
+        "inset 0 8px 16px rgba(252,150,0, 0.056), 0 4px 6px rgba(252,150,0, 0.24)",
+      borderRadius: ".3rem",
     },
     item: {
       width: "100%",

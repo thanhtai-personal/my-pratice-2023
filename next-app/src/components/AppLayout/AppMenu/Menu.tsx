@@ -5,6 +5,7 @@ import clsx from "clsx";
 import _ from "lodash";
 import MenuItem from "./MenuItem";
 import { listStyle } from "./styles";
+import Flex from "src/components/common/Flex";
 
 interface MenuProps {
   alignment: Alignment;
@@ -30,15 +31,21 @@ const Menu = (props: MenuProps) => {
     onClose();
   };
 
+  const handleClickMenu = () => {};
+
   return (
-    <div
+    <Flex
+      column
       className={clsx(classes.list, {
         [classes.fullList]:
           alignment === AlignmentType.top || alignment === AlignmentType.bottom,
       })}
       role="presentation"
-      onClick={handleClose}
+      onClick={handleClickMenu}
       onKeyDown={handleClose}
+      alignItems={"space-between"}
+      justifyContent={"space-between"}
+      height={"100%"}
     >
       <List>
         {(menus || []).map((item, index) => (
@@ -49,19 +56,21 @@ const Menu = (props: MenuProps) => {
           />
         ))}
       </List>
-      {dividerList && !_.isEmpty(dividerList) && <Divider />}
-      {dividerList && !_.isEmpty(dividerList) && (
-        <List>
-          {dividerList.map((item, index) => (
-            <MenuItem
-              key={item.id || item.key}
-              item={item}
-              activeMenus={activeMenus}
-            />
-          ))}
-        </List>
-      )}
-    </div>
+      <Flex column width={"100%"}>
+        {dividerList && !_.isEmpty(dividerList) && <Divider />}
+        {dividerList && !_.isEmpty(dividerList) && (
+          <List>
+            {dividerList.map((item, index) => (
+              <MenuItem
+                key={item.id || item.key}
+                item={item}
+                activeMenus={activeMenus}
+              />
+            ))}
+          </List>
+        )}
+      </Flex>
+    </Flex>
   );
 };
 

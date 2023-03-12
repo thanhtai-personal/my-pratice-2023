@@ -11,6 +11,7 @@ export type MenuItemType = {
   name?: string;
   isActive?: any;
   alignment?: any;
+  onClick?: any;
 };
 interface MenuItemProps {
   item: MenuItemType;
@@ -23,13 +24,13 @@ const MenuItem = (props: MenuItemProps) => {
   return (
     <>
       <ListItem
-        className={
-          item.isActive && item.isActive(item, activeMenus)
-            ? classes.itemActive
-            : classes.item
-        }
+        onClick={item.onClick || (() => {})}
+        selected={item.isActive && item.isActive(item, activeMenus)}
         button
         key={item.id || item.key}
+        classes={{
+          selected: classes.itemActive,
+        }}
       >
         <ListItemIcon>{item.icon}</ListItemIcon>
         <ListItemText primary={item.name} />
