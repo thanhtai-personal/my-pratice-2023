@@ -1,5 +1,6 @@
 import AuthActionsType from "src/actionTypes/auth.actionsType";
 import SignupActionTypes from "src/actionTypes/signup.actionsType";
+import { signup as signupApi } from "src/apis/userApi";
 import store from "src/store";
 
 export const signup = async () => {
@@ -9,7 +10,10 @@ export const signup = async () => {
   });
   try {
     const { login } = store.getState();
-    const response = { data: {} };
+    const response = await signupApi({
+      username: login.username,
+      password: login.password,
+    });
     store.dispatch({
       type: AuthActionsType.UPDATE_AUTHEN_DATA,
       payload: response.data,

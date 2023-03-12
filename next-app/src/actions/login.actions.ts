@@ -1,5 +1,6 @@
 import AuthActionsType from "src/actionTypes/auth.actionsType";
 import LoginActionType from "src/actionTypes/login.actionsType";
+import { login as loginApi } from "src/apis/userApi";
 import { loginSchema } from "pages/login/model.login";
 import store from "src/store";
 
@@ -10,7 +11,10 @@ export const login = async () => {
   });
   try {
     const { login } = store.getState();
-    const response = { data: {} };
+    const response = await loginApi({
+      username: login.username,
+      password: login.password,
+    });
     store.dispatch({
       type: AuthActionsType.UPDATE_AUTHEN_DATA,
       payload: response.data,
