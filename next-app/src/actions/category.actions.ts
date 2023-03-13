@@ -1,5 +1,8 @@
 import CategoryActionType from "src/actionTypes/category.actionsType";
-import { createCategory as createCategoryApi } from "src/apis/category";
+import {
+  createCategory as createCategoryApi,
+  getCategories as getCategoriesApi,
+} from "src/apis/category";
 import { categorySchema } from "src/screens/Categories/Create/model.category";
 import store from "src/store";
 
@@ -19,6 +22,26 @@ export const createCategory = async () => {
     type: CategoryActionType.UPDATE_LOADING_CATEGORY,
     payload: false,
   });
+};
+
+export const getAllCategories = async () => {
+  store.dispatch({
+    type: CategoryActionType.UPDATE_LOADING_CATEGORY,
+    payload: true,
+  });
+  try {
+    const response = await getCategoriesApi();
+    store.dispatch({
+      type: CategoryActionType.UPDATE_LOADING_CATEGORY,
+      payload: false,
+    });
+    return response;
+  } catch (error: any) {
+    store.dispatch({
+      type: CategoryActionType.UPDATE_LOADING_CATEGORY,
+      payload: false,
+    });
+  }
 };
 
 export const updateValidate = () => {

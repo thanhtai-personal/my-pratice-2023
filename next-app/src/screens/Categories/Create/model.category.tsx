@@ -1,10 +1,12 @@
 import { FormItemTypes } from "src/components/common/Form";
 import InputField from "src/components/common/InputField";
+import SelectField from "src/components/common/SelectField";
 import ButtonField from "src/components/common/ButtonField";
 import {
   createCategory,
   updateCategoryName,
   updateCategoryParent,
+  getAllCategories,
 } from "src/actions/category.actions";
 import { FieldAlignment } from "src/components/common/Form";
 import { object, string } from "yup";
@@ -43,8 +45,10 @@ const CategoryModel = {
     selector: (state: any) => ({
       validateObj: state.categories.validateObj,
     }),
+    useNoneValue: true,
+    getOptions: getAllCategories,
     onChange: updateCategoryParent,
-    render: (item) => <InputField item={item} />, //SelectField
+    render: (item) => <SelectField item={item} />,
   },
   actionsFooter: {
     type: FormItemTypes.ACTION,
