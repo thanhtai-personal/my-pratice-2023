@@ -4,15 +4,15 @@ import Flex from "src/components/common/Flex";
 
 import useAdminMenus from "src/hooks/useAdminMenus";
 
-const DashboardPage = (props) => {
+const ImagesPage = (props) => {
   useAdminMenus();
 
   useEffect(() => {
-    setActiveMenu(["dashboard"]);
+    setActiveMenu(["images"]);
     return () => setActiveMenu([]);
   }, []);
 
-  return <Flex>dashboard page</Flex>;
+  return <Flex>Images page</Flex>;
 };
 
-export default DashboardPage;
+export default ImagesPage;

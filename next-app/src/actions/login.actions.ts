@@ -28,10 +28,6 @@ export const login = async () => {
 
 export const updateValidate = () => {
   const { username, password } = store.getState((state) => state.login);
-  console.log(
-    "data",
-    store.getState((state) => state.login)
-  );
   loginSchema
     .validate(
       {
@@ -42,13 +38,13 @@ export const updateValidate = () => {
     )
     .then((valid) => {
       store.dispatch({
-        type: LoginActionType.UPDATE_VALIDATE,
+        type: LoginActionType.UPDATE_VALIDATE_LOGIN,
         payload: [],
       });
     })
     .catch((err) => {
       store.dispatch({
-        type: LoginActionType.UPDATE_VALIDATE,
+        type: LoginActionType.UPDATE_VALIDATE_LOGIN,
         payload: err.errors,
       });
     });

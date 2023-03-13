@@ -16,7 +16,7 @@ const loginReducer = (state: LoginState = initialState, action: any) => {
       return produce(state, (prevState) => {
         prevState.password = action.payload;
       });
-    case LoginActionType.UPDATE_VALIDATE:
+    case LoginActionType.UPDATE_VALIDATE_LOGIN:
       return produce(state, (prevState) => {
         prevState.validateObj.errors = action.payload;
       });

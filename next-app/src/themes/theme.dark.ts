@@ -29,6 +29,20 @@ const darkTheme = {
     },
   },
   overrides: {
+    MuiCssBaseline: {
+      "@global": {
+        "*::-webkit-scrollbar": {
+          width: "2px",
+        },
+        "*::-webkit-scrollbar-track": {
+          background: "#E4EFEF",
+        },
+        "*::-webkit-scrollbar-thumb": {
+          background: "#1D388F61",
+          borderRadius: "2px",
+        },
+      },
+    },
     MuiButton: {
       root: {
         textTransform: "none",

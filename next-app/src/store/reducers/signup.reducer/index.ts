@@ -32,7 +32,7 @@ const loginReducer = (state: SignupState = initialState, action: any) => {
       return produce(state, (prevState) => {
         prevState.phoneNumber = action.payload;
       });
-    case SignupActionType.UPDATE_VALIDATE:
+    case SignupActionType.UPDATE_VALIDATE_SIGNUP:
       return produce(state, (prevState) => {
         prevState.validateObj.errors = action.payload;
       });

@@ -1,4 +1,4 @@
-import { useEffect, useLayoutEffect, useState } from "react";
+import { useLayoutEffect, useState } from "react";
 import store from "src/store";
 
 const useSelector = (
@@ -6,6 +6,7 @@ const useSelector = (
   isDebug: boolean = false
 ) => {
   const [state, setState] = useState(store.getState());
+
   useLayoutEffect(() => {
     const unsubscribe = store.subscribe(() => {
       const newState = store.getState();

@@ -5,37 +5,32 @@ import MuiForm from "src/components/common/Form";
 import useLocalize from "src/hooks/useLocalize";
 import { useCallback, useEffect } from "react";
 import { useGlobalStyle } from "src/styles";
-import { useSignupStyles } from "./styles";
-import SignupModel from "./model.signup";
+import { useCreateCategoryStyles } from "./styles";
+import CreateCategoryModel from "./model.category";
 import useSelector from "src/hooks/useSelector";
 
-interface SignupProps {}
+interface CreateCategoryProps {}
 
-const Signup = (props: SignupProps) => {
-  const classes = useSignupStyles();
+const CreateCategory = (props: CreateCategoryProps) => {
+  const classes = useCreateCategoryStyles();
   const globalClasses = useGlobalStyle();
   const localizeState = useSelector((state) => state.localize);
   const { t, i18n } = useLocalize(localizeState.key);
 
-  useEffect(() => {
-    toggleHeader(false);
-    return () => {
-      toggleHeader(true);
-    };
-  }, []);
-
-  const handleSignup = useCallback(() => {}, []);
+  const handleCreateCategory = useCallback(() => {}, []);
 
   return (
     <Flex width={"100%"} height={"100%"} center>
       <Flex className={globalClasses.box} minWidth={400} column>
         <Flex className="box-title">
-          <Text className={globalClasses.textTitle}>{t("SIGNUP")}</Text>
+          <Text className={globalClasses.textTitle}>
+            {t("Create category")}
+          </Text>
         </Flex>
-        <MuiForm model={SignupModel} onSubmit={handleSignup} />
+        <MuiForm model={CreateCategoryModel} onSubmit={handleCreateCategory} />
       </Flex>
     </Flex>
   );
 };
 
-export default Signup;
+export default CreateCategory;

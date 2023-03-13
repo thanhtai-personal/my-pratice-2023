@@ -15,8 +15,8 @@ const useAdminMenus = () => {
           key: "dashboard",
           icon: "",
           name: "Dashboard",
-          onClick: () => {
-            setActiveMenu(["dashboard"]);
+          onClick: (router, item) => {
+            router.push("/admin/dashboard");
           },
           isActive: (item, activeMenus = []) => activeMenus.includes(item.key),
           subItems: [],
@@ -27,8 +27,8 @@ const useAdminMenus = () => {
           key: "products",
           icon: "",
           name: "Products",
-          onClick: () => {
-            setActiveMenu(["products", "list-products"]);
+          onClick: (router, item) => {
+            router.push("/admin/products");
           },
           isActive: (item, activeMenus = []) => activeMenus.includes(item.key),
           alignment: AlignmentType.left,
@@ -38,8 +38,8 @@ const useAdminMenus = () => {
               key: "list-products",
               icon: "",
               name: "Search",
-              onClick: () => {
-                setActiveMenu(["products", "list-products"]);
+              onClick: (router, item) => {
+                router.push("/admin/products?sMenu=list-products");
               },
               isActive: (item, activeMenus = []) =>
                 activeMenus.includes(item.key),
@@ -49,8 +49,8 @@ const useAdminMenus = () => {
               key: "create-product",
               icon: "",
               name: "Create",
-              onClick: () => {
-                setActiveMenu(["products", "create-product"]);
+              onClick: (router, item) => {
+                router.push("/admin/products?sMenu=create-product");
               },
               isActive: (item, activeMenus = []) =>
                 activeMenus.includes(item.key),
@@ -60,8 +60,8 @@ const useAdminMenus = () => {
               key: "detail-product",
               icon: "",
               name: "Detail",
-              onClick: () => {
-                setActiveMenu(["products", "detail-product"]);
+              onClick: (router, item) => {
+                router.push("/admin/products?sMenu=detail-product");
               },
               isActive: (item, activeMenus = []) =>
                 activeMenus.includes(item.key),
@@ -73,8 +73,8 @@ const useAdminMenus = () => {
           key: "categories",
           icon: "",
           name: "Categories",
-          onClick: () => {
-            setActiveMenu(["categories", "list-categories"]);
+          onClick: (router, item) => {
+            router.push("/admin/categories");
           },
           isActive: (item, activeMenus = []) => activeMenus.includes(item.key),
           alignment: AlignmentType.left,
@@ -84,8 +84,8 @@ const useAdminMenus = () => {
               key: "list-categories",
               icon: "",
               name: "Search",
-              onClick: () => {
-                setActiveMenu(["categories", "list-categories"]);
+              onClick: (router, item) => {
+                router.push("/admin/categories?sMenu=list-categories");
               },
               isActive: (item, activeMenus = []) =>
                 activeMenus.includes(item.key),
@@ -95,8 +95,8 @@ const useAdminMenus = () => {
               key: "create-category",
               icon: "",
               name: "Create",
-              onClick: () => {
-                setActiveMenu(["categories", "create-category"]);
+              onClick: (router, item) => {
+                router.push("/admin/categories?sMenu=create-category");
               },
               isActive: (item, activeMenus = []) =>
                 activeMenus.includes(item.key),
@@ -106,8 +106,8 @@ const useAdminMenus = () => {
               key: "detail-category",
               icon: "",
               name: "Detail",
-              onClick: () => {
-                setActiveMenu(["categories", "detail-category"]);
+              onClick: (router, item) => {
+                router.push("/admin/categories?sMenu=detail-category");
               },
               isActive: (item, activeMenus = []) =>
                 activeMenus.includes(item.key),
@@ -119,8 +119,8 @@ const useAdminMenus = () => {
           key: "orders",
           icon: "",
           name: "Orders",
-          onClick: () => {
-            setActiveMenu(["orders", "list-orders"]);
+          onClick: (router, item) => {
+            router.push("/admin/orders");
           },
           isActive: (item, activeMenus = []) => activeMenus.includes(item.key),
           alignment: AlignmentType.left,
@@ -130,8 +130,8 @@ const useAdminMenus = () => {
               key: "list-orders",
               icon: "",
               name: "Search",
-              onClick: () => {
-                setActiveMenu(["orders", "list-orders"]);
+              onClick: (router, item) => {
+                router.push("/admin/orders?sMenu=list-orders");
               },
               isActive: (item, activeMenus = []) =>
                 activeMenus.includes(item.key),
@@ -141,8 +141,8 @@ const useAdminMenus = () => {
               key: "create-order",
               icon: "",
               name: "Create",
-              onClick: () => {
-                setActiveMenu(["orders", "create-order"]);
+              onClick: (router, item) => {
+                router.push("/admin/orders?sMenu=create-order");
               },
               isActive: (item, activeMenus = []) =>
                 activeMenus.includes(item.key),
@@ -152,13 +152,25 @@ const useAdminMenus = () => {
               key: "detail-order",
               icon: "",
               name: "Detail",
-              onClick: () => {
-                setActiveMenu(["orders", "detail-order"]);
+              onClick: (router, item) => {
+                router.push("/admin/orders?sMenu=detail-order");
               },
               isActive: (item, activeMenus = []) =>
                 activeMenus.includes(item.key),
             },
           ],
+        },
+        {
+          id: "images",
+          key: "images",
+          icon: "",
+          name: "Images",
+          onClick: (router, item) => {
+            router.push("/admin/images");
+          },
+          isActive: (item, activeMenus = []) => activeMenus.includes(item.key),
+          alignment: AlignmentType.left,
+          subItems: [],
         },
       ],
       dividerList: [
@@ -168,8 +180,8 @@ const useAdminMenus = () => {
           alignment: AlignmentType.left,
           icon: "",
           name: "Users",
-          onClick: () => {
-            setActiveMenu(["users", "list-users"]);
+          onClick: (router, item) => {
+            router.push("/admin/users");
           },
           isActive: (item, activeMenus = []) => activeMenus.includes(item.key),
           subItems: [
@@ -178,8 +190,8 @@ const useAdminMenus = () => {
               key: "list-users",
               icon: "",
               name: "Search",
-              onClick: () => {
-                setActiveMenu(["users", "list-users"]);
+              onClick: (router, item) => {
+                router.push("/admin/users");
               },
               isActive: (item, activeMenus = []) =>
                 activeMenus.includes(item.key),
@@ -189,8 +201,8 @@ const useAdminMenus = () => {
               key: "create-user",
               icon: "",
               name: "Create",
-              onClick: () => {
-                setActiveMenu(["users", "create-user"]);
+              onClick: (router, item) => {
+                router.push("/admin/users?sMenu=create-user");
               },
               isActive: (item, activeMenus = []) =>
                 activeMenus.includes(item.key),
@@ -200,8 +212,8 @@ const useAdminMenus = () => {
               key: "detail-user",
               icon: "",
               name: "Detail",
-              onClick: () => {
-                setActiveMenu(["users", "detail-user"]);
+              onClick: (router, item) => {
+                router.push("/admin/users?sMenu=detail-user");
               },
               isActive: (item, activeMenus = []) =>
                 activeMenus.includes(item.key),
@@ -214,8 +226,8 @@ const useAdminMenus = () => {
           alignment: AlignmentType.left,
           icon: "",
           name: "Roles",
-          onClick: () => {
-            setActiveMenu(["roles", "list-roles"]);
+          onClick: (router, item) => {
+            router.push("/admin/roles");
           },
           isActive: (item, activeMenus = []) => activeMenus.includes(item.key),
           subItems: [
@@ -224,8 +236,8 @@ const useAdminMenus = () => {
               key: "list-roles",
               icon: "",
               name: "Search",
-              onClick: () => {
-                setActiveMenu(["roles", "list-roles"]);
+              onClick: (router, item) => {
+                router.push("/admin/roles?sMenu=list-roles");
               },
               isActive: (item, activeMenus = []) =>
                 activeMenus.includes(item.key),
@@ -235,8 +247,8 @@ const useAdminMenus = () => {
               key: "create-role",
               icon: "",
               name: "Create",
-              onClick: () => {
-                setActiveMenu(["roles", "create-role"]);
+              onClick: (router, item) => {
+                router.push("/admin/roles?sMenu=create-role");
               },
               isActive: (item, activeMenus = []) =>
                 activeMenus.includes(item.key),
@@ -246,8 +258,8 @@ const useAdminMenus = () => {
               key: "detail-role",
               icon: "",
               name: "Detail",
-              onClick: () => {
-                setActiveMenu(["roles", "detail-role"]);
+              onClick: (router, item) => {
+                router.push("/admin/roles?sMenu=detail-role");
               },
               isActive: (item, activeMenus = []) =>
                 activeMenus.includes(item.key),

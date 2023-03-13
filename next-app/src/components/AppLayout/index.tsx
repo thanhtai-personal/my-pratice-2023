@@ -10,7 +10,7 @@ interface LayoutProps {
 }
 
 const AppLayout = (props: LayoutProps) => {
-  const layoutState = useSelector((state) => state.layout, true);
+  const layoutState = useSelector((state) => state.layout);
   const classes = appStyles(props);
 
   return (

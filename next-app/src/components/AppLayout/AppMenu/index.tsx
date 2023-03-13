@@ -46,6 +46,7 @@ const AppMenu = (props: AppMenuProps) => {
             open={menuAlignment.includes(alignment)}
             onClose={handleCloseAppMenu}
             BackdropProps={{ invisible: disabledOutSiteClick }}
+            variant="permanent"
           >
             <Menu
               alignment={alignment}

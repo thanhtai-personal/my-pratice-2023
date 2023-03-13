@@ -3,7 +3,7 @@ import Flex from "src/components/common/Flex";
 import Text from "src/components/common/Text";
 import MuiForm from "src/components/common/Form";
 import useLocalize from "src/hooks/useLocalize";
-import { useCallback, useLayoutEffect } from "react";
+import { useCallback, useEffect } from "react";
 import { useGlobalStyle } from "src/styles";
 import { useLoginStyles } from "./styles";
 import LoginModel from "./model.login";
@@ -17,7 +17,7 @@ const Login = (props: LoginProps) => {
   const localizeState = useSelector((state) => state.localize);
   const { t, i18n } = useLocalize(localizeState.key);
 
-  useLayoutEffect(() => {
+  useEffect(() => {
     toggleHeader(false);
     return () => {
       toggleHeader(true);

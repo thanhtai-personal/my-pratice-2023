@@ -9,7 +9,7 @@ const AdminPage = (props) => {
   useAdminMenus();
 
   useEffect(() => {
-    setActiveMenu(["categories", "list-categories"]);
+    setActiveMenu(["dashboard"]);
     return () => setActiveMenu([]);
   }, []);
 

@@ -73,7 +73,7 @@ export const updateValidate = (
   error?: any
 ) => {
   store.dispatch({
-    type: SignupActionTypes.UPDATE_VALIDATE,
+    type: SignupActionTypes.UPDATE_VALIDATE_SIGNUP,
     payload: {
       key,
       isValidated,
