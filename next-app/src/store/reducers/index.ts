@@ -20,7 +20,7 @@ const rootReducer = (state: any = {}, action) => {
     login: loginReducer(state.login, action),
     signup: signupReducer(state.signup, action),
     theme: themeReducer(state.theme, action),
-    categories: categoryReducer(state.theme, action),
+    categories: categoryReducer(state.categories, action),
   };
 };
 
