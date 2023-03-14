@@ -3,7 +3,7 @@ import {
   createCategory as createCategoryApi,
   getCategories as getCategoriesApi,
 } from "src/apis/category";
-import { categorySchema } from "src/screens/Categories/Create/model.category";
+import { categorySchema } from "src/screens/Categories/Create/model.createCategory";
 import store from "src/store";
 
 export const createCategory = async () => {

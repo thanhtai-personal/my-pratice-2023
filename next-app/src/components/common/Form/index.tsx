@@ -20,10 +20,11 @@ interface FormProps {
   model: any;
   onSubmit?: any;
   children?: any;
+  viewMode?: boolean;
 }
 
 const MuiForm = (props: FormProps) => {
-  const { model = {}, children } = props;
+  const { model = {}, children, viewMode = false } = props;
   const modelMapping = useMemo(
     () =>
       Object.keys(model).map((key) => ({
@@ -119,6 +120,7 @@ const MuiForm = (props: FormProps) => {
       bottomRightFields={bottomRightFields}
       topActions={topActions}
       bottomActions={bottomActions}
+      viewMode={viewMode}
     >
       {children && children}
     </FormPresentation>

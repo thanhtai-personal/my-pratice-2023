@@ -8,6 +8,10 @@ import loginReducer from "./login.reducer";
 import themeReducer from "./theme.reducer";
 import signupReducer from "./signup.reducer";
 import categoryReducer from "./category.reducer";
+import orderReducer from "./order.reducer";
+import productReducer from "./product.reducer";
+import userReducer from "./user.reducer";
+import roleReducer from "./role.reducer";
 
 const rootReducer = (state: any = {}, action) => {
   return {
@@ -21,6 +25,10 @@ const rootReducer = (state: any = {}, action) => {
     signup: signupReducer(state.signup, action),
     theme: themeReducer(state.theme, action),
     categories: categoryReducer(state.categories, action),
+    users: userReducer(state.users, action),
+    roles: roleReducer(state.roles, action),
+    products: productReducer(state.products, action),
+    orders: orderReducer(state.orders, action),
   };
 };
 

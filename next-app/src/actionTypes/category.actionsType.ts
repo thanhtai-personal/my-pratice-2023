@@ -1,8 +1,8 @@
-const AuthActionsType = {
+const CategoryActionsType = {
   UPDATE_LOADING_CATEGORY: "UPDATE_LOADING_CATEGORY",
   UPDATE_CATEGORY_NAME: "UPDATE_CATEGORY_NAME",
   UPDATE_VALIDATE_CATEGORY: "UPDATE_VALIDATE_CATEGORY",
   UPDATE_CATEGORY_PARENT: "UPDATE_CATEGORY_PARENT",
 };
 
-export default AuthActionsType;
+export default CategoryActionsType;

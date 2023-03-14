@@ -8,6 +8,10 @@ import loginState from "./login.reducer/initialState";
 import themeState from "./theme.reducer/initialState";
 import signupState from "./signup.reducer/initialState";
 import categoryState from "./category.reducer/initialState";
+import productState from "./product.reducer/initialState";
+import orderState from "./order.reducer/initialState";
+import userState from "./user.reducer/initialState";
+import roleState from "./role.reducer/initialState";
 
 const defaultState = {
   appMenu: appMenuState,
@@ -20,6 +24,10 @@ const defaultState = {
   login: loginState,
   signup: signupState,
   theme: themeState,
+  products: productState,
+  users: userState,
+  orders: orderState,
+  roles: roleState,
 };
 
 export default defaultState;

@@ -34,11 +34,12 @@ const AppMenu = (props: AppMenuProps) => {
     if (disabledOutSiteClick) return;
     updateActiveAlimentMenu([]);
   };
-
+  console.log("menuAlignment", menuAlignment);
   return (
     <div id={"menu-wrapper"}>
       {Object.keys(AlignmentType)
         .map((key) => AlignmentType[key])
+        .filter((alignment) => menuAlignment.includes(alignment))
         .map((alignment) => (
           <Drawer
             key={alignment}

@@ -14,6 +14,7 @@ const FormPresentation = (props: any) => {
     bottomRightFields = [],
     topActions = [],
     bottomActions = [],
+    viewMode,
     customStyle,
   } = props;
 
@@ -40,14 +41,14 @@ const FormPresentation = (props: any) => {
             {!isEmpty(topLeftFields) && (
               <Flex flex={1} column className="fields-wrapper top-left">
                 {topLeftFields.map((field, index) => (
-                  <FormField key={field.key} model={field} />
+                  <FormField key={field.key} model={{ ...field, viewMode }} />
                 ))}
               </Flex>
             )}
             {!isEmpty(topRightFields) && (
               <Flex flex={1} column className="fields-wrapper top-right">
                 {topRightFields.map((field, index) => (
-                  <FormField key={field.key} model={field} />
+                  <FormField key={field.key} model={{ ...field, viewMode }} />
                 ))}
               </Flex>
             )}
@@ -56,14 +57,14 @@ const FormPresentation = (props: any) => {
             {!isEmpty(bottomLeftFields) && (
               <Flex flex={1} column className="fields-wrapper bottom-left">
                 {bottomLeftFields.map((field, index) => (
-                  <FormField key={field.key} model={field} />
+                  <FormField key={field.key} model={{ ...field, viewMode }} />
                 ))}
               </Flex>
             )}
             {!isEmpty(bottomRightFields) && (
               <Flex flex={1} column className="fields-wrapper bottom-right">
                 {bottomRightFields.map((field, index) => (
-                  <FormField key={field.key} model={field} />
+                  <FormField key={field.key} model={{ ...field, viewMode }} />
                 ))}
               </Flex>
             )}
@@ -74,7 +75,7 @@ const FormPresentation = (props: any) => {
           <Flex width={"100%"} justifyContent={"flex-end"}>
             {bottomActions.map((action) => (
               <Flex m={1} key={action.key}>
-                {action.render(action)}
+                {action.render({ ...action, viewMode })}
               </Flex>
             ))}
           </Flex>

@@ -1,12 +1,11 @@
-import { toggleHeader } from "src/actions/layout.actions";
 import Flex from "src/components/common/Flex";
 import Text from "src/components/common/Text";
 import MuiForm from "src/components/common/Form";
 import useLocalize from "src/hooks/useLocalize";
-import { useCallback, useEffect } from "react";
+import { useCallback } from "react";
 import { useGlobalStyle } from "src/styles";
 import { useCreateCategoryStyles } from "./styles";
-import CreateCategoryModel from "./model.category";
+import CreateCategoryModel from "./model.createCategory";
 import useSelector from "src/hooks/useSelector";
 
 interface CreateCategoryProps {}
